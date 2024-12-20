@@ -18,7 +18,7 @@ const Card = ({children, name = "Boon Name"} : Props) => {
          </div>
         <div className='card-main w-2/3'>
             <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h3>
-            <p className="font-normal text-gray-700 dark:text-gray-400">Your Doom effects continuously strike Weak foes.</p>
+            <p className="font-normal text-gray-700 dark:text-gray-400">{children}</p>
         </div>
     </div>
   )
