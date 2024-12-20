@@ -1,16 +1,24 @@
 import { useState } from "react";
+
 import Aspect from "./components/Aspect";
 import FilterMenu from './components/FilterMenu';
 import Card from './components/Card'
 import Weapons from './components/Weapons'
+import {weaponsData} from "./data/Weapons"
 
 import './App.css'
 
 function App() {
 
-  const [build, setBuild] = useState([]);
+  const [build, setBuild] = useState({weapon: "", aspect: "", attack: "", special: "", cast: "", dash: "", call: ""});
   const [menuStatus, setMenuStatus] = useState(false);
   const [weaponStatus, setWeaponStatus] = useState(false);
+
+  const updateBuild = (item:string) => {
+    setMenuStatus(true),
+    setWeaponStatus(false),  
+    setBuild( build => ({...build, weapon: item}))
+  }
 
 
   return (
@@ -18,7 +26,7 @@ function App() {
       <div className="site-wrap">
         <header className="p-4 sm:ml-64">
           <div className="header-inner flex justify-center flex-col">
-              {build.length === 0 ? <span className="text-center text-white block py-5 text-2xl">No Boons Added</span> : null}
+              {build.cast === "" ? <span className="text-center text-white block py-5 text-2xl">No Boons Added</span> : null}
           </div>
         </header>
         <aside id="default-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
@@ -26,7 +34,7 @@ function App() {
                 <section id='weapon-side' className="space-y-2 font-medium">
                     <h2>Weapon</h2>
                     <div className='weapon_wrap'>
-                        <Aspect onClick={() => setWeaponStatus(true)}>Weapon</Aspect>
+                        <Aspect onClick={() => setWeaponStatus(true)} attribute={build.weapon}>Weapon</Aspect>
                     </div>
                     <div className="weapon_wrap">
                         <Aspect>Aspect</Aspect>
@@ -45,7 +53,11 @@ function App() {
         <main className='p-4 sm:ml-64'>
             {menuStatus && <FilterMenu />}
 
-            {weaponStatus && <Weapons name="Weapon" onWeaponClick={() => (setMenuStatus(false))}/>}
+            {weaponStatus && <Weapons 
+              name="Weapon"
+              data={weaponsData}
+              onItemClick={updateBuild}
+            />}
 
 {/* 
             <section id='aspects' className='hide'>
