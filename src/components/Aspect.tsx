@@ -2,15 +2,20 @@ import { useState } from 'react';
 
 interface Props {
     children ?: string;
+    attribute ?: string;
     onClick ?: () => void;
 }
 
-const Aspect = ({children = "Select Aspect", onClick}: Props) => {
+const Aspect = ({attribute, children = "Select Aspect", onClick}: Props) => {
 
   const [aspect, setAspect] = useState('');
 
+  if(attribute) {
+    setAspect(attribute);
+  }
+
   const handleClick = () => {
-    setAspect(children);
+    //setAspect(children);
     if (onClick) {
       onClick();
     }
@@ -21,7 +26,9 @@ const Aspect = ({children = "Select Aspect", onClick}: Props) => {
       className='current__aspect no_selection'
       role="button"
       onClick={handleClick}>
-        {!aspect && <span>Select {children}</span>}
+        {!attribute ? <span>{children}</span>
+        
+        : <span>{aspect}</span>}
     </div>
   )
 }
