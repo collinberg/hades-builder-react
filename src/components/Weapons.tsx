@@ -1,16 +1,29 @@
-import {weaponsData} from "../data/Weapons"
-
 interface Props {
   name?: string;
-  onWeaponClick : (weapon: string) => void;
+  data: Weapon[];
+  onItemClick : (weapon: string) => void;
 }
 
-const Weapons = ({name, onWeaponClick} : Props) => {
+interface Weapon {
+  type: string;
+  ID: string;
+  name: string;
+  img: string;
+  aspects: Array<Aspect>;
+}
+interface Aspect {
+  number: number;
+  ID: string;
+  name: string;
+  img: string;
+}
+
+const Weapons = ({name, data, onItemClick} : Props) => {
 
   const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
     const item = event.currentTarget.getAttribute('data-weapon');
     if (item) {
-      onWeaponClick(item);
+      onItemClick(item);
     }
   };
 
@@ -19,7 +32,7 @@ const Weapons = ({name, onWeaponClick} : Props) => {
         <h2> Select {name}</h2>
         <ul className='nav weapon-nav'>
 
-          {weaponsData.map((weapon, index) => (
+          {data.map((weapon : Weapon, index: number) => (
             <li className='nav-item' data-weapon={weapon.type} key={index} role="button" onClick={handleClick} >
               <img src={weapon.img}/>
               {weapon.name}
