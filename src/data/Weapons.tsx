@@ -1,3 +1,20 @@
+/**
+ * An array of weapon data objects, each representing a weapon in the game.
+ * Each weapon object contains information about the weapon type, ID, name, image, and its aspects.
+ * 
+ * @type {Array<Object>}
+ * @property {string} type - The type of the weapon (e.g., "sword", "spear").
+ * @property {string} ID - The unique identifier for the weapon.
+ * @property {string} name - The name of the weapon.
+ * @property {string} img - The image path for the weapon.
+ * @property {Array<Object>} aspects - An array of aspect objects associated with the weapon.
+ * 
+ * Each aspect object contains:
+ * @property {number} number - The aspect number.
+ * @property {string} ID - The unique identifier for the aspect.
+ * @property {string} name - The name of the aspect.
+ * @property {string} img - The image path for the aspect.
+ */
 export const weaponsData = [
     {
       "type": "sword",
