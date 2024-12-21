@@ -16,7 +16,7 @@ const Aspect = ({attribute, children = "Select Aspect", onClick}: Props) => {
 
   return (
     <div
-      className='current__aspect {!attribute ? "no_selection"}'
+      className={`current__aspect ${attribute ? 'selected' : 'no_selection'}`}
       role="button"
       onClick={handleClick}>
         {attribute ? (

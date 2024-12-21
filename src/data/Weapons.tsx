@@ -20,7 +20,7 @@ export const weaponsData = [
       "type": "sword",
       "ID"  : "W1",
       "name" : "Stygian Blade",
-      "img" : "/src/assets/img/_weapons/Stygian_Blade.webp",      
+      "img" : "/hades-builder-react/src/assets/img/_weapons/Stygian_Blade.webp",      
       "aspects" : [
         {
           "number" : 1,
@@ -52,7 +52,7 @@ export const weaponsData = [
       "type": "spear",
       "ID"  : "W2",
       "name" : "Eternal Spear",
-      "img" : "/src/assets/img/_weapons/Eternal_Spear.webp",
+      "img" : "/hades-builder-react/src/assets/img/_weapons/Eternal_Spear.webp",
       "aspects" : [
         {
           "number" : 1,
@@ -84,7 +84,7 @@ export const weaponsData = [
       "type": "shield",
       "ID"  : "W3",
       "name" : "Shield of Chaos",
-      "img" : "/src/assets/img/_weapons/Shield_of_Chaos.webp",        
+      "img" : "/hades-builder-react/src/assets/img/_weapons/Shield_of_Chaos.webp",        
       "aspects" : [
         {
           "number" : 1,
@@ -116,7 +116,7 @@ export const weaponsData = [
       "type": "bow",
       "ID"  : "W4",
       "name" : "Seeking Bow",
-      "img" : "/src/assets/img/_weapons/Heart-Seeker_Bow.webp",  
+      "img" : "/hades-builder-react/src/assets/img/_weapons/Heart-Seeker_Bow.webp",  
       "aspects" : [
         {
           "number" : 1,
@@ -148,7 +148,7 @@ export const weaponsData = [
       "type": "fists",
       "ID"  : "W5",
       "name" : "Twin Fists of Malphon",
-      "img" : "/src/assets/img/_weapons/Twin_Fists.webp",  
+      "img" : "/hades-builder-react/src/assets/img/_weapons/Twin_Fists.webp",  
       "aspects" : [
         {
           "number" : 1,
@@ -180,7 +180,7 @@ export const weaponsData = [
       "type": "gun",
       "ID"  : "W5",
       "name" : "Adamant Rail",
-      "img" : "/src/assets/img/_weapons/Adamant_Rail.webp",  
+      "img" : "/hades-builder-react/src/assets/img/_weapons/Adamant_Rail.webp",  
       "aspects" : [
         {
           "number" : 1,
