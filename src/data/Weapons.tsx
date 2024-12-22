@@ -15,7 +15,23 @@
  * @property {string} name - The name of the aspect.
  * @property {string} img - The image path for the aspect.
  */
-export const weaponsData = [
+
+
+interface Weapon {
+  type: string;
+  ID: string;
+  name: string;
+  img: string;
+  aspects: Array<Aspect>;
+}
+interface Aspect {
+  number: number;
+  ID: string;
+  name: string;
+  img: string;
+}
+
+export const weaponsData : Weapon[] = [
     {
       "type": "sword",
       "ID"  : "W1",
@@ -26,25 +42,25 @@ export const weaponsData = [
           "number" : 1,
           "ID" : "W1-1",
           "name" : "Aspect of Zagreus",
-          "img" : "/src/assets/img/_aspect/Zagreus_Aspect_Sword.webp"
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Zagreus_Aspect_Sword.webp"
         },
         {
           "number" : 2,
           "ID" : "W1-2",
-          "name" : "Aspect of Poseidon",
-          "img" : "/src/assets/img/_aspect/Poseidon_Aspect.webp"
-        },
+          "name" : "Aspect of Nemesis",
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Nemesis_Aspect.webp"
+        },        
         {
           "number" : 3,
           "ID" : "W1-3",
-          "name" : "Aspect of Nemesis",
-          "img" : "/src/assets/img/_aspect/Nemesis_Aspect.webp"
+          "name" : "Aspect of Poseidon",
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Poseidon_Aspect.webp"
         },
         {
           "number" : 4,
           "ID" : "W1-4",
           "name" : "Aspect of Arthur",
-          "img" : "/src/assets/img/_aspect/Arthur_Aspect.webp"
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Arthur_Aspect.webp"
         },
       ]
     },
@@ -57,26 +73,26 @@ export const weaponsData = [
         {
           "number" : 1,
           "ID" : "W2-1",
-          "name" : "Eternal Spear",
-          "img" : "/src/assets/img/_weapons/Eternal_Spear.webp"
+          "name" : "Aspect of Zagreus",
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Zagreus_Aspect_Spear.webp"
         },
         {
           "number" : 2,
           "ID" : "W2-2",
-          "name" : "Aspect of Poseidon",
-          "img" : "/src/assets/img/_aspect/Poseidon_Aspect.webp"
+          "name" : "Aspect of Achilles",
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Achilles_Aspect.webp"
         },
         {
           "number" : 3,
           "ID" : "W2-3",
-          "name" : "Aspect of Nemesis",
-          "img" : "/src/assets/img/_aspect/Nemesis_Aspect.webp"
+          "name" : "Aspect of Hades",
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Hades_Aspect.webp"
         },
         {
           "number" : 4,
           "ID" : "W2-4",
-          "name" : "Aspect of Arthur",
-          "img" : "/src/assets/img/_aspect/Arthur_Aspect.webp"
+          "name" : "Aspect of Guan Yu",
+          "img" : "/hades-builder-react/src/assets/img/_aspect/Guan_Yu_Aspect.webp"
         },
       ]
     },
