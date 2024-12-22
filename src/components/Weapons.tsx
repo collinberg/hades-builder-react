@@ -1,7 +1,7 @@
 interface Props {
   name?: string;
-  data: Weapon[];
-  onItemClick : (weapon: string) => void;
+  data: Weapon[] | Aspect[];
+  onItemClick : (weapon: number) => void;
 }
 
 interface Weapon {
@@ -21,9 +21,9 @@ interface Aspect {
 const Weapons = ({name, data, onItemClick} : Props) => {
 
   const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
-    const item = event.currentTarget.getAttribute('data-weapon');
+    const item = event.currentTarget.getAttribute('data-id');
     if (item) {
-      onItemClick(item);
+      onItemClick(Number(item));
     }
   };
 
@@ -32,8 +32,14 @@ const Weapons = ({name, data, onItemClick} : Props) => {
         <h2> Select {name}</h2>
         <ul className='nav weapon-nav'>
 
-          {data.map((weapon : Weapon, index: number) => (
-            <li className='nav-item' data-weapon={weapon.type} key={index} role="button" onClick={handleClick} >
+          {data.map((weapon, index: number) => (
+            <li 
+              className='nav-item' 
+              data-id={index}
+              key={index}
+              role="button"
+              onClick={handleClick}
+            >
               <img src={weapon.img}/>
               {weapon.name}
           </li>
@@ -43,4 +49,4 @@ const Weapons = ({name, data, onItemClick} : Props) => {
   )
 }
 
-export default Weapons
+export default Weapons;

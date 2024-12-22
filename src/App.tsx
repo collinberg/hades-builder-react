@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Aspect from "./components/Aspect";
+import BuildSelector from "./components/BuildSelector";
 import FilterMenu from './components/FilterMenu';
 import Card from './components/Card'
 import Weapons from './components/Weapons'
@@ -8,16 +8,67 @@ import {weaponsData} from "./data/Weapons"
 
 import './App.css'
 
+
 function App() {
 
-  const [build, setBuild] = useState({weapon: "", aspect: "", attack: "", special: "", cast: "", dash: "", call: ""});
+  const [build, setBuild] = useState(
+    {weapon : {
+      type: "",
+      ID: "",
+      name: "",
+      img: "",
+    },
+    aspect: {
+      number : 0,
+      ID: "",
+      name: "",
+      img: "",
+    },
+    attack: "",
+    special: "",
+    dash: "",
+    call: "",
+    cast: ""
+  });
   const [menuStatus, setMenuStatus] = useState(false);
   const [weaponStatus, setWeaponStatus] = useState(false);
+  const [aspectStatus, setAspectStatus] = useState(false);
+  const [aspect, setAspect] = useState(0);
 
-  const updateBuild = (item:string) => {
-    setMenuStatus(true),
-    setWeaponStatus(false),  
-    setBuild( build => ({...build, weapon: item}))
+
+
+
+  const updateBuild = (item:number) => {
+    setWeaponStatus(false),
+    setAspectStatus(true),
+    setAspect(item),
+    setBuild( build => (
+      {...build,
+        weapon: {
+          type: weaponsData[item].type,
+          ID: weaponsData[item].ID,
+          name: weaponsData[item].name,
+          img: weaponsData[item].img,
+        }
+      }
+    ));
+    
+  }
+
+  const updateAspect = (item:number) => {
+    setMenuStatus(true)
+    setWeaponStatus(false),
+    setAspectStatus(false)
+    setBuild( build => (
+      {...build,
+        aspect: {
+          number: weaponsData[aspect].aspects[item].number,
+          ID: weaponsData[aspect].aspects[item].ID,
+          name: weaponsData[aspect].aspects[item].name,
+          img: weaponsData[aspect].aspects[item].img,
+        }
+      }
+    ));
   }
 
 
@@ -34,19 +85,19 @@ function App() {
                 <section id='weapon-side' className="space-y-2 font-medium">
                     <h2>Weapon</h2>
                     <div className='weapon_wrap'>
-                        <Aspect onClick={() => setWeaponStatus(true)} attribute={build.weapon}>Weapon</Aspect>
+                        <BuildSelector onClick={() => setWeaponStatus(true)} attribute={build.weapon}>Weapon</BuildSelector>
                     </div>
                     <div className="weapon_wrap">
-                        <Aspect>Aspect</Aspect>
+                        <BuildSelector onClick={() => setAspectStatus(true)} attribute={build.aspect}>Aspect</BuildSelector>
                     </div>
                 </section>
                 <section id='aspect-side'>
                     <h2>Abilities</h2>
-                    <Aspect>Attack</Aspect>
-                    <Aspect>Special</Aspect>
-                    <Aspect>Cast</Aspect>
-                    <Aspect>Dash</Aspect>
-                    <Aspect>Call</Aspect>
+                    <BuildSelector>Attack</BuildSelector>
+                    <BuildSelector>Special</BuildSelector>
+                    <BuildSelector>Cast</BuildSelector>
+                    <BuildSelector>Dash</BuildSelector>
+                    <BuildSelector>Call</BuildSelector>
                 </section>
             </div>
         </aside>
@@ -59,16 +110,13 @@ function App() {
               onItemClick={updateBuild}
             />}
 
-{/* 
-            <section id='aspects' className='hide'>
-                <h2>Select Aspect</h2>
-                <ul className='nav aspect-nav'>
-                    <li className='nav-item' data-aspect="zagreus"><img src="assets/img/_aspect/Zagreus_Aspect_Sword.webp"/>Aspect of Zagreus</li>
-                    <li className='nav-item' data-aspect="poseidon"><img src="assets/img/_aspect/Poseidon_Aspect.webp"/>Aspect of Poseidon</li>
-                    <li className='nav-item' data-aspect="nemesis"><img src="assets/img/_aspect/Nemesis_Aspect.webp"/>Aspect of Nemesis</li>
-                    <li className='nav-item' data-aspect="arthur"><img src="assets/img/_aspect/Arthur_Aspect.webp"/>Aspect of Arthur</li>
-                </ul>
-            </section> */}
+            {aspectStatus && <Weapons 
+              name="Aspect"
+              data={weaponsData[aspect].aspects}
+              onItemClick={updateAspect}
+            />}
+
+
            
             <section className=''>
                 <h2>Boons</h2>

@@ -1,4 +1,4 @@
-import Aspect from "./Aspect";
+import Aspect from "./BuildSelector";
 
 
 function Sidebar() {
