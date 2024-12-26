@@ -3,21 +3,30 @@ import { useState } from "react";
 import BuildSelector from "./components/BuildSelector";
 import AppNav from "./components/AppNav";
 import FilterMenu from './components/FilterMenu';
-import Card from './components/Card'
-import Weapons from './components/Weapons'
+import Card from './components/Card';
+import Weapons from './components/Weapons';
 
-import {weaponsData} from "./data/Weapons"
-import {attack} from "./data/BoonsAttack"
-import {special} from "./data/BoonsSpecial"
-import {cast} from "./data/BoonsCast"
+import {weaponsData} from "./data/Weapons";
+import {attack} from "./data/BoonsAttack";
+//import {special} from "./data/BoonsSpecial";
+//import {cast} from "./data/BoonsCast"
 
 import './App.css'
 
+interface Boon {
+  ID: number;
+  name: string;
+  god: string;   
+  description: string;
+  img: string;
+  prerequisites?: string[];
+}
 
 function App() {
 
   const [build, setBuild] = useState(
-    {weapon : {
+    {
+    weapon : {
       type: "",
       ID: "",
       name: "",
@@ -29,11 +38,29 @@ function App() {
       name: "",
       img: "",
     },
-    attack: "",
-    special: "",
-    dash: "",
+    attack: {
+      ID: 0,
+      name: "",
+      god: "",
+      description: "",
+      img: "",
+    },
+    special: {
+      ID: 0,
+      name: "",
+      god: "",
+      description: "",
+      img: "",
+    },
+    dash: {
+      ID: 0,
+      name: "",
+      god: "",
+      description: "",
+      img: "",
+    },
     call: "",
-    cast: ""
+    cast: "",
   });
   const [menuStatus, setMenuStatus] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -73,6 +100,22 @@ function App() {
     ));
   }
 
+  const updateAbility = (name:string, ability:string,data:Boon[]) => {
+    setActiveIndex(0);
+
+    if (ability === "attack") {
+      const selected: any = data.find( selected => selected.name === name);
+      setBuild( build => (
+        {...build,
+          attack: selected
+        }
+      ));
+
+      console.log(selected);
+    }
+
+  }
+
 
   return (
     <>
@@ -92,7 +135,7 @@ function App() {
                   </section>
                   <section id='aspect-side'>
                       <h2>Abilities</h2>
-                      <BuildSelector onClick={() => setActiveIndex(3)}>Attack</BuildSelector>
+                      <BuildSelector onClick={() => setActiveIndex(3)} attribute={build.attack}>Attack</BuildSelector>
                       <BuildSelector onClick={() => setActiveIndex(4)}>Special</BuildSelector>
                       <BuildSelector onClick={() => setActiveIndex(5)}>Cast</BuildSelector>
                       <BuildSelector>Dash</BuildSelector>
@@ -125,21 +168,21 @@ function App() {
               <section className=''>
                   <h2>Boons</h2>
                   <div className='grid grid-cols-3 gap-4'>
-                    {activeIndex == 3 && attack.map((boon) => (
-                        <Card {...boon} key={boon.ID}
+                    {activeIndex == 3 && attack.map((boon, index) => (
+                        <Card {...boon} key={index} onClick={() => updateAbility(boon.name,"attack",attack)}
                         />
                     ))}
 
-                    {activeIndex == 4 && special.map((boon) => (
-                        <Card {...boon} key={boon.ID}
+                    {/* {activeIndex == 4 && special.map((boon) => (
+                        <Card {...boon}
                         />
                     ))}
 
 
                     {activeIndex == 5 && cast.map((boon) => (
-                        <Card {...boon} key={boon.ID}
+                        <Card {...boon}
                         />
-                    ))}                  
+                    ))}                   */}
                   </div>
               </section>
           </main>

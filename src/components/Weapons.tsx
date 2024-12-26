@@ -36,7 +36,7 @@ const Weapons = ({name, data, onItemClick} : Props) => {
             <li 
               className='nav-item' 
               data-id={index}
-              key={index}
+              key={"W" + index}
               role="button"
               onClick={handleClick}
             >
