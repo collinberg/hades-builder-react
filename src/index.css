@@ -35,13 +35,18 @@ header .header-inner {
   border-radius: 8px;
 }
 
-aside > div {
+aside,
+nav {
   background-color: var(--theme-grey-800);
+}
+
+nav {
+  border-bottom: 1px solid #333;
 }
 
 h2 {
   font-size: 1.25em;
-  text-transform: uppercase;
+  text-transform: capitalize;
   line-height: 1em;
   margin-bottom: 0.5em;
   margin-top: 0;
@@ -87,8 +92,7 @@ main {
 }
 
 .nav-item:hover img {
-  filter: drop-shadow(-2px -2px 0 gold) drop-shadow(-2px 2px 0 gold)
-    drop-shadow(2px -2px 0 gold) drop-shadow(2px 2px 0 gold);
+  filter: drop-shadow(-2px -2px 0 gold) drop-shadow(-2px 2px 0 gold) drop-shadow(2px -2px 0 gold) drop-shadow(2px 2px 0 gold);
 }
 
 .nav-item img {
@@ -145,7 +149,7 @@ main {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 110px;
   position: relative;
-  margin-right: 1em;
+  margin-right: 0.5rem;
 }
 
 .current__weapon img,
