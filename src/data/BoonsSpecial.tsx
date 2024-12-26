@@ -1,4 +1,4 @@
-interface Boon {
+export interface Boon {
     ID: number;
     name: string;
     god: string;   

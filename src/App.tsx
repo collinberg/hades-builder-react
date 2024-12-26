@@ -7,20 +7,13 @@ import Card from './components/Card';
 import Weapons from './components/Weapons';
 
 import {weaponsData} from "./data/Weapons";
-import {attack} from "./data/BoonsAttack";
-//import {special} from "./data/BoonsSpecial";
-//import {cast} from "./data/BoonsCast"
+import {Boon, attack} from "./data/BoonsAttack";
+import {special} from "./data/BoonsSpecial";
+import {cast} from "./data/BoonsCast"
 
 import './App.css'
 
-interface Boon {
-  ID: number;
-  name: string;
-  god: string;   
-  description: string;
-  img: string;
-  prerequisites?: string[];
-}
+
 
 function App() {
 
@@ -60,7 +53,14 @@ function App() {
       img: "",
     },
     call: "",
-    cast: "",
+    cast: { 
+      ID: 0,
+      name: "",
+      god: "",
+      description: "",
+      img: "",
+    },
+    boons: ""
   });
   const [menuStatus, setMenuStatus] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -102,16 +102,26 @@ function App() {
 
   const updateAbility = (name:string, ability:string,data:Boon[]) => {
     setActiveIndex(0);
+    const selected: any = data.find( selected => selected.name === name);
 
     if (ability === "attack") {
-      const selected: any = data.find( selected => selected.name === name);
       setBuild( build => (
         {...build,
           attack: selected
         }
       ));
-
-      console.log(selected);
+    } else if (ability === "special") {
+      setBuild( build => (
+        {...build,
+          special: selected
+        }
+      ));
+    } else if (ability === "cast") {
+      setBuild( build => (
+        {...build,
+          cast: selected
+        }
+      ));
     }
 
   }
@@ -136,8 +146,8 @@ function App() {
                   <section id='aspect-side'>
                       <h2>Abilities</h2>
                       <BuildSelector onClick={() => setActiveIndex(3)} attribute={build.attack}>Attack</BuildSelector>
-                      <BuildSelector onClick={() => setActiveIndex(4)}>Special</BuildSelector>
-                      <BuildSelector onClick={() => setActiveIndex(5)}>Cast</BuildSelector>
+                      <BuildSelector onClick={() => setActiveIndex(4)} attribute={build.special}>Special</BuildSelector>
+                      <BuildSelector onClick={() => setActiveIndex(5)} attribute={build.cast}>Cast</BuildSelector>
                       <BuildSelector>Dash</BuildSelector>
                       <BuildSelector>Call</BuildSelector>
                   </section>
@@ -146,7 +156,7 @@ function App() {
           <main className='p-4 sm:ml-64'>
             <header className="mb-4">
               <div className="header-inner flex justify-center flex-col">
-                  {build.cast === "" ? <span className="text-center text-white block py-5 text-2xl">No Boons Added</span> : null}
+                  {build.boons === "" ? <span className="text-center text-white block py-5 text-2xl">No Boons Added</span> : null}
               </div>
             </header>          
               {menuStatus && <FilterMenu />}
@@ -173,16 +183,16 @@ function App() {
                         />
                     ))}
 
-                    {/* {activeIndex == 4 && special.map((boon) => (
-                        <Card {...boon}
+                    {activeIndex == 4 && special.map((boon, index) => (
+                        <Card {...boon}  key={index} onClick={() => updateAbility(boon.name,"special",special)}
                         />
                     ))}
 
 
-                    {activeIndex == 5 && cast.map((boon) => (
-                        <Card {...boon}
+                    {activeIndex == 5 && cast.map((boon, index) => (
+                        <Card {...boon}  key={index} onClick={() => updateAbility(boon.name,"cast",cast)}
                         />
-                    ))}                   */}
+                    ))}
                   </div>
               </section>
           </main>
