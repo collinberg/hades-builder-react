@@ -37,7 +37,7 @@ export const dash : Boon[] = [
         "name": "Passion Dash",
         "god": "Aphrodite",
         "description": "Your Dash inflicts damage where you end up, inflicting Weak.",
-        "img": "./attacks/attack/Passion_Dash_I.webp",
+        "img": "./attacks/dash/Passion_Dash_I.webp",
         "prerequisites": []      
     },
     {
@@ -45,7 +45,7 @@ export const dash : Boon[] = [
         "name": "Hunter Dash",
         "god": "Artemis",
         "description": "Your Dash-Strike deals more damage.",
-        "img": "./attacks/attack/Hunter_Dash_I.webp",
+        "img": "./attacks/dash/Hunter_Dash_I.webp",
         "prerequisites": []      
     },
     {
@@ -53,7 +53,7 @@ export const dash : Boon[] = [
         "name": "Blade Dash",
         "god": "Ares",
         "description": "Your Dash creates a Blade Rift where you started.",
-        "img": "./attacks/attack/Blade_Dash_I.webp",
+        "img": "./attacks/dash/Blade_Dash_I.webp",
         "prerequisites": []      
     },
     {
@@ -61,7 +61,7 @@ export const dash : Boon[] = [
         "name": "Drunken Dash",
         "god": "Dionysus",
         "description": "Your Dash inflicts foes near you with Hangover.",
-        "img": "./attacks/attack/Drunken_Dash_I.webp",
+        "img": "./attacks/dash/Drunken_Dash_I.webp",
         "prerequisites": []      
     },
     {
@@ -69,7 +69,7 @@ export const dash : Boon[] = [
         "name": "Mistral Dash",
         "god": "Demeter",
         "description": "Your Dash shoots a gust ahead that inflicts Chill.",
-        "img": "./attacks/attack/Mistral_Dash_I.webp",
+        "img": "./attacks/dash/Mistral_Dash_I.webp",
         "prerequisites": []      
     }
 

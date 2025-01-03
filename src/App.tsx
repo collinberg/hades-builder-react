@@ -10,6 +10,8 @@ import {weaponsData} from "./data/Weapons";
 import {Boon, attack} from "./data/BoonsAttack";
 import {special} from "./data/BoonsSpecial";
 import {cast} from "./data/BoonsCast"
+import { dash } from "./data/BoonsDash";
+import { call } from "./data/BoonsCall";
 
 import './App.css'
 
@@ -52,7 +54,13 @@ function App() {
       description: "",
       img: "",
     },
-    call: "",
+    call: {
+      ID: 0,
+      name: "",
+      god: "",
+      description: "",
+      img: "",
+    },
     cast: { 
       ID: 0,
       name: "",
@@ -122,6 +130,18 @@ function App() {
           cast: selected
         }
       ));
+    } else if (ability === "dash") {
+      setBuild( build => (
+        {...build,
+          dash: selected
+        }
+      ));
+    } else if (ability === "call") {
+      setBuild( build => (
+        {...build,
+          call: selected
+        }
+      ));
     }
 
   }
@@ -148,8 +168,9 @@ function App() {
                       <BuildSelector onClick={() => setActiveIndex(3)} attribute={build.attack}>Attack</BuildSelector>
                       <BuildSelector onClick={() => setActiveIndex(4)} attribute={build.special}>Special</BuildSelector>
                       <BuildSelector onClick={() => setActiveIndex(5)} attribute={build.cast}>Cast</BuildSelector>
-                      <BuildSelector>Dash</BuildSelector>
-                      <BuildSelector>Call</BuildSelector>
+                      <BuildSelector onClick={() => setActiveIndex(6)} attribute={build.dash}>Dash</BuildSelector>
+                      <BuildSelector onClick={() => setActiveIndex(7)} attribute={build.call}>Call</BuildSelector>
+
                   </section>
               </div>
           </aside>
@@ -193,6 +214,18 @@ function App() {
                         <Card {...boon}  key={index} onClick={() => updateAbility(boon.name,"cast",cast)}
                         />
                     ))}
+
+                    {activeIndex == 6 && dash.map((boon, index) => (
+                        <Card {...boon}  key={index} onClick={() => updateAbility(boon.name,"dash",dash)}
+                        />
+                    ))}
+
+                    {activeIndex == 7 && call.map((boon, index) => (
+                        <Card {...boon}  key={index} onClick={() => updateAbility(boon.name,"call",call)}
+                        />
+                    
+                    ))}
+
                   </div>
               </section>
           </main>
