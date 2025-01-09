@@ -112,37 +112,12 @@ function App() {
     setActiveIndex(0);
     const selected: any = data.find( selected => selected.name === name);
 
-    if (ability === "attack") {
-      setBuild( build => (
-        {...build,
-          attack: selected
-        }
-      ));
-    } else if (ability === "special") {
-      setBuild( build => (
-        {...build,
-          special: selected
-        }
-      ));
-    } else if (ability === "cast") {
-      setBuild( build => (
-        {...build,
-          cast: selected
-        }
-      ));
-    } else if (ability === "dash") {
-      setBuild( build => (
-        {...build,
-          dash: selected
-        }
-      ));
-    } else if (ability === "call") {
-      setBuild( build => (
-        {...build,
-          call: selected
-        }
-      ));
-    }
+    setBuild( build => (
+      {...build,
+        [ability]: selected
+      }
+    ));
+    
 
   }
 
