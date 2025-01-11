@@ -6,9 +6,10 @@ interface Props {
     img : string;
     god: string;
     onClick?: () => void;
+    disabled?: boolean;
 }
 
-const Card = ({ID, name = "Boon Name", description = "No Description Available",  img, god, onClick} : Props) => {
+const Card = ({ID, name = "Boon Name", description = "No Description Available",  img, god, onClick, disabled} : Props) => {
 
     const handleClick = () => {
         if (onClick) {
@@ -17,7 +18,7 @@ const Card = ({ID, name = "Boon Name", description = "No Description Available",
       };
 
   return (
-    <div className='boon-card block max-w-sm p-6 border flex row border-gray-200 rounded-lg shadow' key={ID.toString()} data-god={god} onClick={handleClick}>
+    <div className={`boon-card block max-w-sm p-6 border flex row border-gray-200 rounded-lg shadow${disabled ? ' disabled' : ''}`} key={ID.toString()} data-god={god} onClick={!disabled ? handleClick : undefined}>
         <div className='card-head w-1/3'>
             <div className='gods'>
                 <img src={img}/>
@@ -27,6 +28,7 @@ const Card = ({ID, name = "Boon Name", description = "No Description Available",
             <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h3>
             <p className="font-normal text-gray-700 dark:text-gray-400">{description}</p>
         </div>
+        {disabled && <div className='card-overlay'>This Boon Requirement is not met.</div>}
     </div>
   )
 }
