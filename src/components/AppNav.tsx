@@ -1,7 +1,18 @@
 // Desc: App Navigation Bar
 //
 // This is the navigation bar for the app. It contains the app logo and a button to open the sidebar.
-const AppNav = () => {
+interface Props {
+  onResetClick?: () => void;
+}
+const AppNav = ({onResetClick} : Props ) => {
+
+  const handleClick = () => {
+    if (onResetClick) {
+      onResetClick();
+    }
+  };
+
+
   return (
     <nav className="fixed z-30 w-full">
     <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -15,6 +26,9 @@ const AppNav = () => {
           </button>                
           <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">Hades Builder</a>
         </div>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <button type="button" className="btn btn-primary text-white" onClick={handleClick}>Reset</button>
+          </div>
       </div>
     </div>
   </nav>

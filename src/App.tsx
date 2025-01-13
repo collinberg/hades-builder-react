@@ -12,6 +12,7 @@ import {special} from "./data/BoonsSpecial";
 import {cast} from "./data/BoonsCast"
 import { dash } from "./data/BoonsDash";
 import { call } from "./data/BoonsCall";
+import { boons } from "./data/Boons";
 
 import './App.css'
 
@@ -160,7 +161,7 @@ function App() {
   return (
     <>
       <div className="site-wrap">
-        <AppNav />
+        <AppNav onResetClick={() => setBuild(initialBuildState) } />
         <div className="flex w-full pt-16 overflow-hidden" aria-hidden="true">
           <aside id="default-sidebar" className="fixed pt-12 top-0 left-0 z-20 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
               <div className="h-full px-4 py-8 overflow-y-auto">
@@ -208,7 +209,7 @@ function App() {
             
               <section className=''>
                   <h2>Boons</h2>
-                  <div className='grid grid-cols-3 gap-4'>
+                  <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
                     {activeIndex == 3 && attack.map((boon) => (
                         <Card {...boon}
                         key={boon.ID}
@@ -237,6 +238,14 @@ function App() {
                     ))}
 
                     {activeIndex == 7 && call.map((boon) => (
+                        <Card {...boon}  key={boon.ID} onClick={() => updateAbility(boon.name,"call",call)}
+                        disabled={isCardDisabled(boon.prerequisites)}
+                        />
+                    
+                    ))}
+
+
+                    {boons.map((boon) => (
                         <Card {...boon}  key={boon.ID} onClick={() => updateAbility(boon.name,"call",call)}
                         disabled={isCardDisabled(boon.prerequisites)}
                         />
