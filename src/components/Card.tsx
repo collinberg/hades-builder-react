@@ -1,6 +1,6 @@
 
 interface Props {
-    ID: number;
+    id: string;
     name: string;
     description: string;
     img : string;
@@ -9,7 +9,7 @@ interface Props {
     disabled?: boolean;
 }
 
-const Card = ({ID, name = "Boon Name", description = "No Description Available",  img, god, onClick, disabled} : Props) => {
+const Card = ({id, name = "Boon Name", description = "No Description Available",  img, god, onClick, disabled} : Props) => {
 
     const handleClick = () => {
         if (onClick) {
@@ -18,7 +18,7 @@ const Card = ({ID, name = "Boon Name", description = "No Description Available",
       };
 
   return (
-    <div className={`boon-card lg:max-w-sm p-6 border border-gray-200 rounded-lg shadow ${disabled ? ' disabled' : ''}`} key={ID.toString()} data-god={god} onClick={!disabled ? handleClick : undefined}>
+    <div className={`boon-card lg:max-w-sm p-6 border border-gray-200 rounded-lg shadow ${disabled ? ' disabled' : ''}`} key={id.toString()} data-god={god} onClick={!disabled ? handleClick : undefined}>
         <div className='card-head w-1/3'>
             <div className='gods'>
                 <img src={img}/>

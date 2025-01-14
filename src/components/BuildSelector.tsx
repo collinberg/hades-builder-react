@@ -5,7 +5,7 @@ interface Props {
 }
 
 interface Boon {
-  ID: number;
+  id: number;
   name: string;
   god: string;   
   description: string;
@@ -15,14 +15,14 @@ interface Boon {
 
 interface Weapon {
   type: string;
-  ID: string;
+  id: string;
   name: string;
   img: string;
 }
 
 interface Aspect {
   number?: number;
-  ID: string;
+  id: string;
   name: string;
   img: string;
 }
@@ -37,8 +37,8 @@ const BuildSelector = ({attribute, children = "Select Aspect", onClick}: Props) 
 
   return (
     <>
-        {attribute?.ID ? (
-          <div className='current__aspect selected' role="button" onClick={handleClick} key={attribute.ID}>
+        {attribute?.id ? (
+          <div className='current__aspect selected' role="button" onClick={handleClick} key={attribute.id}>
             <div className="weapon-icon">
               <img src={attribute.img} alt={attribute.name} />
             </div>
