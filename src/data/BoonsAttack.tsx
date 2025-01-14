@@ -1,5 +1,5 @@
 export interface Boon {
-    ID: number;
+    id: string;
     name: string;
     god: string;   
     description: string;
@@ -9,7 +9,7 @@ export interface Boon {
 
 export const attack : Boon[] = [
     {
-        "ID": 1,
+        "id": "AT_ZEU_01",
         "name": "Lightning Strike",
         "god": "Zeus",
         "description": "Your Attack emits chain-lightning when you damage a foe.",
@@ -17,7 +17,7 @@ export const attack : Boon[] = [
         "prerequisites": []
     },
     {
-        "ID": 2,
+        "id": "AT_POS_02",
         "name": "Tempest Strike",
         "god": "Poseidon",
         "description": "Your Attack deals more damage and knocks foes away.",
@@ -25,7 +25,7 @@ export const attack : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 3,
+        "id": "AT_ATH_03",
         "name": "Divine Strike",
         "god": "Athena",
         "description": "Your Attack is stronger, and can Deflect.",
@@ -33,7 +33,7 @@ export const attack : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 4,
+        "id": "AT_APH_04",
         "name": "Heartbreak Strike",
         "god": "Aphrodite",
         "description": "Your Attack deals more damage and inflicts Weak.",
@@ -41,7 +41,7 @@ export const attack : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 5,
+        "id": "AT_ART_05",
         "name": "Deadly Strike",
         "god": "Artemis",
         "description": "Your Attack is stronger, with +15% chance to deal Critical damage.",
@@ -49,7 +49,7 @@ export const attack : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 6,
+        "id": "AT_ARE_06",
         "name": "Curse of Agony",
         "god": "Ares",
         "description": "Your Attack inflicts Doom.",
@@ -57,7 +57,7 @@ export const attack : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 7,
+        "id": "AT_DIO_07",
         "name": "Drunken Strike",
         "god": "Dionysus",
         "description": "Your Attack inflicts Hangover.",
@@ -65,7 +65,7 @@ export const attack : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 8,
+        "id": "AT_DEM_08",
         "name": "Frost Strike",
         "god": "Demeter",
         "description": "Your Attack is stronger and inflicts Chill.",

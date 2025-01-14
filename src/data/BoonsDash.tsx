@@ -1,5 +1,5 @@
 export interface Boon {
-    ID: number;
+    id: string;
     name: string;
     god: string;   
     description: string;
@@ -9,7 +9,7 @@ export interface Boon {
 
 export const dash : Boon[] = [
     {
-        "ID": 1,
+        "id": "DA_ZEU_01",
         "name": "Thunder Dash",
         "god": "Zeus",
         "description": "Your Dash causes a lightning bolt to strike nearby foes.",
@@ -17,23 +17,23 @@ export const dash : Boon[] = [
         "prerequisites": []
     },
     {
-        "ID": 2,
-        "name": "Tidal Dash",
-        "god": "Zeus",
+        "id": "DA_POS_02",
+        "name": "TIdal Dash",
+        "god": "PoseIdon",
         "description": "Your Dash damages foes in an area and knocks them away.",
-        "img": "./attacks/dash/Tidal_Dash_I.webp",
+        "img": "./attacks/dash/TIdal_Dash_I.webp",
         "prerequisites": []
     },
     {
-        "ID": 3,
+        "id": "DA_ATH_03",
         "name": "Divine Dash",
-        "god": "Zeus",
+        "god": "Athena",
         "description": "Your Dash deals damage and can Deflect.",
         "img": "./attacks/dash/Divine_Dash_I.webp",
         "prerequisites": []
     },
     {
-        "ID": 4,
+        "id": "DA_APH_4",
         "name": "Passion Dash",
         "god": "Aphrodite",
         "description": "Your Dash inflicts damage where you end up, inflicting Weak.",
@@ -41,7 +41,7 @@ export const dash : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 5,
+        "id": "DA_ART_05",
         "name": "Hunter Dash",
         "god": "Artemis",
         "description": "Your Dash-Strike deals more damage.",
@@ -49,7 +49,7 @@ export const dash : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 6,
+        "id": "DA_ARE_06",
         "name": "Blade Dash",
         "god": "Ares",
         "description": "Your Dash creates a Blade Rift where you started.",
@@ -57,7 +57,7 @@ export const dash : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 7,
+        "id": "DA_DIO_07",
         "name": "Drunken Dash",
         "god": "Dionysus",
         "description": "Your Dash inflicts foes near you with Hangover.",
@@ -65,7 +65,7 @@ export const dash : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 8,
+        "id": "DA_DEM_08",
         "name": "Mistral Dash",
         "god": "Demeter",
         "description": "Your Dash shoots a gust ahead that inflicts Chill.",

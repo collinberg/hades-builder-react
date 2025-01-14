@@ -1,5 +1,5 @@
 interface Boon {
-    ID: number;
+    id: string;
     name: string;
     god: string;   
     description: string;
@@ -9,7 +9,7 @@ interface Boon {
 
 export const boons : Boon[] = [
     {
-        ID: 0,        
+        id: "Z00",        
         name : "Heaven's Vengeance",
         god : "Zeus",
         description : "After you take damage, your foe is struck by lightning.",
@@ -21,7 +21,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "After you Dash just before getting hit, a bolt strikes a nearby foes.",
         img : "./boons/Lightning_Reflexes_I.webp",
-        ID: 1,
+        id: "Z01", 
         prerequisites: [],
     },
     {
@@ -29,7 +29,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "Your chain-lightning effects bounce more times before expiring.",
         img : "./boons/Storm_Lightning_I.webp",
-        ID: 2,
+        id: "Z02", 
         prerequisites: ['Lightning Strike', 'Electric Shot'],
     },    
     {
@@ -37,7 +37,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "Your lightning bolt effects deal damage in a larger area.",
         img : "./boons/High_Voltage_I.webp",
-        ID: 3,
+        id: "Z03", 
         prerequisites: ['Thunder Flourish', 'Thunder Dash','Zeus\' Aid'],
     },  
     {
@@ -45,7 +45,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "Your lightning bolt effects have a chance to strike twice.",
         img : "./boons/Double_Strike_I.webp",
-        ID: 4,
+        id: "Z04",
         prerequisites: [],
     },
     {
@@ -53,7 +53,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "Your lightning effects also make foes Jolted.",
         img : "./boons/Static_Discharge_I.webp",
-        ID: 5,
+        id: "Z05",
         prerequisites: [],
     }, 
     {
@@ -61,7 +61,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "Your God Gauge charges faster when you deal or take damage.",
         img : "./boons/Clouded_Judgment_I.webp",
-        ID: 6,
+        id: "Z06", 
         prerequisites: [],
     }, 
     {
@@ -69,7 +69,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "After using Call, you deal more damage for 15 Sec.",
         img : "./boons/Billowing_Strength_I.webp",
-        ID: 7,
+        id: "Z07", 
         prerequisites: [],
     }, 
     {
@@ -77,7 +77,7 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "All your lightning effects create an additional burst.",
         img : "./boons/Splitting_Bolt_I.webp",
-        ID: 8,
+        id: "Z08",
         prerequisites: [],
     },    
     {
@@ -85,7 +85,39 @@ export const boons : Boon[] = [
         god : "Zeus",
         description : "Your Call charges up automatically, but is capped at 25%.",
         img : "./boons/Smoldering_Air_I.webp",
-        ID: 9,
+        id: "DUO_09",
         prerequisites: [],
-    },              
+    },
+    {
+        name : "Dying Lament",
+        god : "Aphrodite",
+        description : "When foes are slain, they damage nearby foes and inflict Weak. ",
+        img : "./boons/Smoldering_Air_I.webp",
+        id: "A_01",
+        prerequisites: [],
+    },  
+    {
+        name : "Wave of Despair",
+        god : "Aphrodite",
+        description : "After you take damage, damage nearby foes and inflict Weak.",
+        img : "./boons/Smoldering_Air_I.webp",
+        id: "A_02",
+        prerequisites: [],
+    },   
+    {
+        name : "Different League",
+        god : "Aphrodite",
+        description : "Resist some damage from nearby foes' attacks.",
+        img : "./boons/Smoldering_Air_I.webp",
+        id: "A_03",
+        prerequisites: [],
+    },
+    {
+        name : "Life Affirmation",
+        god : "Aphrodite",
+        description : "Any Health chamber rewards are worth more.",
+        img : "./boons/Smoldering_Air_I.webp",
+        id: "A_04",
+        prerequisites: [],
+    },                
 ];

@@ -1,5 +1,5 @@
 export interface Boon {
-    ID: number;
+    id: string;
     name: string;
     god: string;   
     description: string;
@@ -9,7 +9,7 @@ export interface Boon {
 
 export const special : Boon[] = [
     {
-        "ID": 1,
+        "id": "SP_ZEU_01",
         "name": "Thunder Flourish",
         "god": "Zeus",
         "description": "Your Special causes a lightning bolt to strike nearby foes.",
@@ -17,7 +17,7 @@ export const special : Boon[] = [
         "prerequisites": []
     },
     {
-        "ID": 2,
+        "id": "SP_POS_02",
         "name": "Tempest Strike",
         "god": "Poseidon",
         "description": "Your Special deals more damage and knocks foes away.",
@@ -25,7 +25,7 @@ export const special : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 3,
+        "id": "SP_ATH_03",
         "name": "Divine Flourish",
         "god": "Athena",
         "description": "Your Special is stronger, and can Deflect.",
@@ -33,7 +33,7 @@ export const special : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 4,
+        "id": "SP_APH_04",
         "name": "Heartbreak Flourish",
         "god": "Aphrodite",
         "description": "Your Special deals more damage and inflicts Weak.",
@@ -41,7 +41,7 @@ export const special : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 5,
+        "id": "SP_ART_05",
         "name": "Deadly Flourish",
         "god": "Artemis",
         "description": "Your Special is stronger, with +20% chance to deal Critical Damage.",
@@ -49,7 +49,7 @@ export const special : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 6,
+        "id": "SP_ARE_06",
         "name": "Curse of Pain",
         "god": "Ares",
         "description": "Your Special inflicts Doom.",
@@ -57,7 +57,7 @@ export const special : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 7,
+        "id": "SP_DIO_07",
         "name": "Drunken Flourish",
         "god": "Dionysus",
         "description": "Your Special inflicts Hangover.",
@@ -65,7 +65,7 @@ export const special : Boon[] = [
         "prerequisites": []      
     },
     {
-        "ID": 8,
+        "id": "SP_DEM_08",
         "name": "Frost Flourish",
         "god": "Demeter",
         "description": "Your Special is stronger and inflicts Chill.",

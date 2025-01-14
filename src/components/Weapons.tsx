@@ -6,14 +6,14 @@ interface Props {
 
 interface Weapon {
   type: string;
-  ID: string;
+  id: string;
   name: string;
   img: string;
   aspects: Array<Aspect>;
 }
 interface Aspect {
   number: number;
-  ID: string;
+  id: string;
   name: string;
   img: string;
 }
