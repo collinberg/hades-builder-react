@@ -1,30 +1,11 @@
-interface Props {
+import {Boon, Weapon, Aspect} from "../App";
+import {weaponsData} from "../data/Weapons";
+
+
+export interface Props {
     children ?: string;
-    attribute ?: Weapon | Aspect | Boon;
+    attribute ?: Weapon | Aspect | Boon | string;
     onClick ?: () => void;
-}
-
-interface Boon {
-  id: number;
-  name: string;
-  god: string;   
-  description: string;
-  img: string;
-  prerequisites?: string[];
-}
-
-interface Weapon {
-  type: string;
-  id: string;
-  name: string;
-  img: string;
-}
-
-interface Aspect {
-  number?: number;
-  id: string;
-  name: string;
-  img: string;
 }
 
 const BuildSelector = ({attribute, children = "Select Aspect", onClick}: Props) => {
@@ -34,10 +15,16 @@ const BuildSelector = ({attribute, children = "Select Aspect", onClick}: Props) 
       onClick();
     }
   };
+  
+  if (typeof attribute === "string") {
+      attribute = weaponsData.find((weapon) => weapon.id === attribute);
+  }
+
+
 
   return (
     <>
-        {attribute?.id ? (
+      {attribute?.id ? (
           <div className='current__aspect selected' role="button" onClick={handleClick} key={attribute.id}>
             <div className="weapon-icon">
               <img src={attribute.img} alt={attribute.name} />
