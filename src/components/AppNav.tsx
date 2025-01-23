@@ -27,7 +27,7 @@ const AppNav = ({onResetClick} : Props ) => {
           <a href="#" className="text-2xl font-bold text-gray-900 dark:text-white">Hades Builder</a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <button type="button" className="btn btn-primary text-white" onClick={handleClick}>Reset</button>
+            <button type="button" className="btn btn-primary text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" onClick={handleClick}>Reset</button>
           </div>
       </div>
     </div>
