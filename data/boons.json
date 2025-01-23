@@ -1,0 +1,181 @@
+
+{
+    "boons" : [
+    {
+        "id": "Z_00",        
+        "name" : "Heaven's Vengeance",
+        "god" : "Zeus",
+        "description" : "After you take damage, your foe is struck by lightning.",
+        "img" : "./boons/Heaven's_Vengeance_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "Z_01", 
+        "name" : "Lightning Reflexes",
+        "god" : "Zeus",
+        "description" : "After you Dash just before getting hit, a bolt strikes a nearby foes.",
+        "img" : "./boons/Lightning_Reflexes_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "Z_02",
+        "name" : "Storm Lightning",
+        "god" : "Zeus",
+        "description" : "Your chain-lightning effects bounce more times before expiring.",
+        "img" : "./boons/Storm_Lightning_I.webp",
+        "prerequisites": ["Lightning Strike", "Electric Shot"]
+    },    
+    {
+        "id": "Z_03",         
+        "name" : "High Voltage",
+        "god" : "Zeus",
+        "description" : "Your lightning bolt effects deal damage in a larger area.",
+        "img" : "./boons/High_Voltage_I.webp",
+        "prerequisites": ["Thunder Flourish", "Thunder Dash","Zeus' Aid"]
+    },  
+    {
+        "id": "Z_04",
+        "name" : "Double Strike",
+        "god" : "Zeus",
+        "description" : "Your lightning bolt effects have a chance to strike twice.",
+        "img" : "./boons/Double_Strike_I.webp",
+        "prerequisites": "[]"
+    },
+    {
+        "id": "Z_05",
+        "name" : "Static Discharge",
+        "god" : "Zeus",
+        "description" : "Your lightning effects also make foes Jolted.",
+        "img" : "./boons/Static_Discharge_I.webp",
+        "prerequisites": "[]"
+    }, 
+    {
+        "id": "Z_06",
+        "name" : "Clouded Judgment",
+        "god" : "Zeus",
+        "description" : "Your God Gauge charges faster when you deal or take damage.",
+        "img" : "./boons/Clouded_Judgment_I.webp", 
+        "prerequisites": []
+    }, 
+    {
+        "id": "Z_07", 
+        "name" : "Billowing Strength",
+        "god" : "Zeus",
+        "description" : "After using Call, you deal more damage for 15 Sec.",
+        "img" : "./boons/Billowing_Strength_I.webp",
+        "prerequisites": []
+    }, 
+    {
+        "id": "Z_08",
+        "name" : "Splitting Bolt",
+        "god" : "Zeus",
+        "description" : "All your lightning effects create an additional burst.",
+        "img" : "./boons/Splitting_Bolt_I.webp",
+        "prerequisites": []
+    },    
+    {
+        "id": "A_01",
+        "name" : "Dying Lament",
+        "god" : "Aphrodite",
+        "description" : "When foes are slain, they damage nearby foes and inflict Weak. ",
+        "img" : "./boons/Dying_Lament_I.webp",
+        "prerequisites": []
+    },  
+    {
+        "id": "A_02",
+        "name" : "Wave of Despair",
+        "god" : "Aphrodite",
+        "description" : "After you take damage, damage nearby foes and inflict Weak.",
+        "img" : "./boons/Wave_of_Despair_I.webp",
+        "prerequisites": []
+    },   
+    {
+        "id": "A_03",
+        "name" : "Different League",
+        "god" : "Aphrodite",
+        "description" : "Resist some damage from nearby foes' attacks.",
+        "img" : "./boons/Different_League_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "A_04",
+        "name" : "Life Affirmation",
+        "god" : "Aphrodite",
+        "description" : "Any Health chamber rewards are worth more.",
+        "img" : "./boons/Life_Affirmation_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "A_05",
+        "name" : "Empty Inside",
+        "god" : "Aphrodite",
+        "description" : "Your Weak effects have a longer duration.",
+        "img" : "./boons/Empty_Inside_I.webp",
+        "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
+    },
+    {
+        "id": "A_06",
+        "name" : "Sweet Surrender",
+        "god" : "Aphrodite",
+        "description" : "Weak-afflicted foes are also more susceptible to damage.",
+        "img" : "./boons/Sweet_Surrender_I.webp",
+        "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
+    },
+    {
+        "id": "A_07",
+        "name" : "Broken Resolve",
+        "god" : "Aphrodite",
+        "description" : "Your Weak effects are more potent.",
+        "img" : "./boons/Broken_Resolve_I.webp",
+        "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
+    },
+    {
+        "id": "A_08",
+        "name" : "Blown Kiss",
+        "god" : "Aphrodite",
+        "description" : "Your Cast shoots farther and is stronger against undamaged foes.",
+        "img" : "./boons/Blown_Kiss_I.webp",
+        "prerequisites": ["Crush Shot"]
+    },
+    {
+        "id": "A_09",
+        "name" : "Unhealthy Fixation",
+        "god" : "Aphrodite",
+        "description" : "Your Weak effects also have a 15% chance to Charm foes.",
+        "img" : "./boons/Unhealthy_Fixation_I.webp",
+        "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
+    },
+    {
+        "id": "P_01",
+        "name" : "Typhoon's Fury",
+        "god" : "Poseidon",
+        "description" : "You deal more damage when slamming foes into barriers.",
+        "img" : "./boons/Typhoon's_Fury_I.webp",
+        "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
+    },
+    {
+        "id": "P_02",
+        "name" : "Hydraulic Might",
+        "god" : "Poseidon",
+        "description" : "Your Attack and Special are stronger the first 10 Sec. in Encounter(s).",
+        "img" : "./boons/Hydraulic_Might_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "P_03",
+        "name" : "Ocean's Bounty",
+        "god" : "Poseidon",
+        "description" : "Any Gemstone, Darkness or Obols chamber rewards are worth more.",
+        "img" : "./boons/Ocean's_Bounty_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "P_04",
+        "name" : "Sunken Treasure",
+        "god" : "Poseidon",
+        "description" : "Gain an assortment of Gemstone, Darkness, Obols and Health.",
+        "img" : "./boons/Sunken_Treasure_I.webp",
+        "prerequisites": []
+    }                     
+    ]
+}
