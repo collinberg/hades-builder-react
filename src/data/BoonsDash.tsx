@@ -18,10 +18,10 @@ export const dash : Boon[] = [
     },
     {
         "id": "DA_POS_02",
-        "name": "TIdal Dash",
+        "name": "Tidal Dash",
         "god": "PoseIdon",
         "description": "Your Dash damages foes in an area and knocks them away.",
-        "img": "./attacks/dash/TIdal_Dash_I.webp",
+        "img": "./attacks/dash/Tidal_Dash_I.webp",
         "prerequisites": []
     },
     {
