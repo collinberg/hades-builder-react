@@ -100,11 +100,14 @@ const initialBuildState: Build = {
   boons: [],
 };
 
+
 function App() {
 
   const [build, setBuild] = useState<Build>(initialBuildState);
   const [boonList, setBoonList] = useState<Boon[]>([]);
+
   const [selectedGod, setSelectedGod] = useState<string | null>(null);
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [aspect, setAspect] = useState(0);
 
@@ -180,12 +183,12 @@ function App() {
   useEffect(function () {
     async function fetchData() {
       try{
-        const res = await fetch("http://localhost:9000/boons");
+        const res = await fetch("https://collinberg.github.io/hades-builder-react/data/boons.json");
         const boonList = await res.json();
+        setBoonList(boonList.boons);
         console.log(boonList);
-        setBoonList(boonList);
       } catch (error) {
-        console.log(error);
+        console.log("Error Dummy :" + error);
       }
       }
     fetchData();
@@ -278,7 +281,7 @@ function App() {
                     
                     ))}
 
-                    {filteredBoons.map((boon) => (
+                    {filteredBoons.length > 0 && filteredBoons?.map((boon) => (
                       //If the build.boons array does not contain the current boon, display the card.
                       !build.boons.some(b => b.id === boon.id) && (
 
