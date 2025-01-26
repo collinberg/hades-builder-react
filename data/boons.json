@@ -39,7 +39,7 @@
         "god" : "Zeus",
         "description" : "Your lightning bolt effects have a chance to strike twice.",
         "img" : "./boons/Double_Strike_I.webp",
-        "prerequisites": "[]"
+        "prerequisites": []
     },
     {
         "id": "Z_05",
@@ -47,7 +47,7 @@
         "god" : "Zeus",
         "description" : "Your lightning effects also make foes Jolted.",
         "img" : "./boons/Static_Discharge_I.webp",
-        "prerequisites": "[]"
+        "prerequisites": []
     }, 
     {
         "id": "Z_06",
@@ -176,6 +176,62 @@
         "description" : "Gain an assortment of Gemstone, Darkness, Obols and Health.",
         "img" : "./boons/Sunken_Treasure_I.webp",
         "prerequisites": []
+    },
+    {
+        "id": "P_05",
+        "name" : "Razor Shoals",
+        "god" : "Poseidon",
+        "description" : "Using knock-away effects also Rupture foes.",
+        "img" : "./boons/Razor_Shoals_I.webp",
+        "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash","Poseidon's Aid"]
+    },
+    {
+        "id": "P_06",
+        "name" : "Boiling Point",
+        "god" : "Poseidon",
+        "description" : "Your God Gauge charges faster when you take damage.",
+        "img" : "./boons/Boiling_Point_I.webp",
+        "prerequisites": ["Aphrodite's Aid", "Ares' Aid", "Artemis' Aid", "Athena's Aid", "Demeter's Aid", "Dionysus' Aid", "Poseidon's Aid", "Zeus' Aid", "Hades' Aid"]
+    },
+    {
+        "id": "P_07",
+        "name" : "Breaking Wave",
+        "god" : "Poseidon",
+        "description" : "Slamming foes into walls or corners creates a watery blast in the area.",
+        "img" : "./boons/Breaking_Wave_I.webp",
+        "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
+    },
+    {
+        "id": "P_08",
+        "name" : "Wave Pounding",
+        "god" : "Poseidon",
+        "description" : "Your boons with Knock-Away effects deal bonus damage to bosses.",
+        "img" : "./boons/Wave_Pounding_I.webp",
+        "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
+    },
+    {
+        "id": "P_09",
+        "name" : "Rip Current",
+        "god" : "Poseidon",
+        "description" : "Your Call pulls in foes and the effect lasts longer.",
+        "img" : "./boons/Rip_Current_I.webp",
+        "prerequisites": ["Poseidon's Aid"]
+    },
+    {
+        "id": "P_10",
+        "name" : "Huge Catch",
+        "god" : "Poseidon",
+        "description" : "You have a greater chance to find Fishing Point in each Chamber.",
+        "img" : "./boons/Huge_Catch_I.webp",
+        "prerequisites": ["Ocean's Bounty", "Sunken Treasure"]
+    },
+    {
+        "id": "P_11",
+        "name" : "Second Wave",
+        "god" : "Poseidon",
+        "description" : "Your knock-away effects shove foes a second time after the first.",
+        "img" : "./boons/Second_Wave_I.webp",
+        "prerequisites": ["Breaking Wave","Typhoon's Fury","Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
     }                     
     ]
 }
