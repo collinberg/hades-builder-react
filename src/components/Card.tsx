@@ -5,12 +5,12 @@ interface Props {
     description: string;
     img : string;
     god: string;
+    prerequisites?: string[] | [];
     onClick?: () => void;
     disabled?: boolean;
 }
 
-const Card = ({id, name = "Boon Name", description = "No Description Available",  img, god, onClick, disabled} : Props) => {
-
+const Card = ({id, name = "Boon Name", description = "No Description Available",  img, god, onClick, disabled,prerequisites} : Props) => {
     const handleClick = () => {
         if (onClick) {
           onClick();
@@ -26,9 +26,20 @@ const Card = ({id, name = "Boon Name", description = "No Description Available",
          </div>
         <div className='card-main w-2/3'>
             <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h3>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{description}</p>
+            <p className="font-normal text-gray-700 dark:text-gray-400">
+              {` ${!disabled ? description : 'This Boon Requirement is not met.'}`}
+            </p>
+
+          {disabled && <p className="font-normal text-gray-700 dark:text-gray-400 mt-2 pb-1">Requires one of the following: </p>}  
+          <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+          {disabled && prerequisites && prerequisites.map((req, index) => (
+            
+            <li key={index} className="text-sm pl-1">{req}</li>
+          
+          ))}
+          </ul>
+
         </div>
-        {disabled && <div className='card-overlay'>This Boon Requirement is not met.</div>}
     </div>
   )
 }

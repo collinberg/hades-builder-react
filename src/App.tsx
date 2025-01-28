@@ -111,10 +111,12 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [aspect, setAspect] = useState(0);
 
+  //This function accepts a string and sets the selectedGod state to that string. If the string is already selected, it sets the selectedGod state to null. (untoggle the filter)
   const handleFilterClick = (god: string) => {
     selectedGod === god ? setSelectedGod(null) : setSelectedGod(god);
   };
 
+  //This function filters the boonList array based on the selectedGod state.
   const filteredBoons = selectedGod
   ? boonList.filter(boon => boon.god === selectedGod)
   : boonList;
@@ -176,21 +178,40 @@ function App() {
     if (prerequisite?.length == 0 ) return false;
     //If there are prerequisites, check if any of them are in the build.boons array
     //If any of them are found, return false. because returning true would disable the card.
-    return !prerequisite.includes(build.aspect.id);
+    //Haystack, Needle
+    return !prerequisite.some(prereq => 
+      build.boons.some(boon => prereq === boon.name) || 
+      build.attack.name === prereq || 
+      build.special.name === prereq || 
+      build.dash.name === prereq || 
+      build.cast.name === prereq || 
+      build.call.name === prereq
+    );
   };
 
 
   useEffect(function () {
     async function fetchData() {
-      try{
-        const res = await fetch("https://collinberg.github.io/hades-builder-react/data/boons.json");
-        const boonList = await res.json();
-        setBoonList(boonList.boons);
-        console.log(boonList);
-      } catch (error) {
-        console.log("Error Dummy :" + error);
+
+      if(process.env.NODE_ENV !== "development") {
+        try{
+          const res = await fetch("https://collinberg.github.io/hades-builder-react/data/boons.json");
+          const boonList = await res.json();
+          setBoonList(boonList.boons);
+        } catch (error) {
+          console.log("Error Dummy :" + error);
+        }
+      } else {
+        try{
+          const res = await fetch("http://localhost:9000/boons");
+          const boonList = await res.json();
+          console.log(boonList);
+          setBoonList(boonList);
+        } catch (error) {
+          console.log("Error Dummy :" + error);
+        }
       }
-      }
+    }
     fetchData();
   }, []);
 
@@ -242,11 +263,9 @@ function App() {
                 onItemClick={updateAspect}
               />}
 
+            <section className='abilities'>
+              <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-5'>
 
-            
-              <section className=''>
-                  <h2>Boons</h2>
-                  <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
                     {activeIndex == 3 && attack.map((boon) => (
                         <Card {...boon}
                         key={boon.id}
@@ -280,7 +299,12 @@ function App() {
                         />
                     
                     ))}
-
+              </div>
+              </section>
+            
+              <section className=''>
+                  <h2>Boons <span>{filteredBoons.length}</span></h2>
+                  <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
                     {filteredBoons.length > 0 && filteredBoons?.map((boon) => (
                       //If the build.boons array does not contain the current boon, display the card.
                       !build.boons.some(b => b.id === boon.id) && (
