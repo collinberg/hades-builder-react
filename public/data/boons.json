@@ -39,7 +39,7 @@
         "god" : "Zeus",
         "description" : "Your lightning bolt effects have a chance to strike twice.",
         "img" : "./boons/Double_Strike_I.webp",
-        "prerequisites": "[]"
+        "prerequisites": []
     },
     {
         "id": "Z_05",
@@ -47,7 +47,7 @@
         "god" : "Zeus",
         "description" : "Your lightning effects also make foes Jolted.",
         "img" : "./boons/Static_Discharge_I.webp",
-        "prerequisites": "[]"
+        "prerequisites": []
     }, 
     {
         "id": "Z_06",
@@ -200,6 +200,110 @@
         "description" : "Slamming foes into walls or corners creates a watery blast in the area.",
         "img" : "./boons/Breaking_Wave_I.webp",
         "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
-    }                     
+    },
+    {
+        "id": "P_08",
+        "name" : "Wave Pounding",
+        "god" : "Poseidon",
+        "description" : "Your boons with Knock-Away effects deal bonus damage to bosses.",
+        "img" : "./boons/Wave_Pounding_I.webp",
+        "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
+    },
+    {
+        "id": "P_09",
+        "name" : "Rip Current",
+        "god" : "Poseidon",
+        "description" : "Your Call pulls in foes and the effect lasts longer.",
+        "img" : "./boons/Rip_Current_I.webp",
+        "prerequisites": ["Poseidon's Aid"]
+    },
+    {
+        "id": "P_10",
+        "name" : "Huge Catch",
+        "god" : "Poseidon",
+        "description" : "You have a greater chance to find Fishing Point in each Chamber.",
+        "img" : "./boons/Huge_Catch_I.webp",
+        "prerequisites": ["Ocean's Bounty", "Sunken Treasure"]
+    },
+    {
+        "id": "P_11",
+        "name" : "Second Wave",
+        "god" : "Poseidon",
+        "description" : "Your knock-away effects shove foes a second time after the first.",
+        "img" : "./boons/Second_Wave_I.webp",
+        "prerequisites": ["Breaking Wave","Typhoon's Fury","Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
+    },
+    {
+        "id": "AR_01",
+        "name" : "Curse of Vengeance",
+        "god" : "Ares",
+        "description" : "After you take damage, inflict Doom on surrounding foes.",
+        "img" : "./boons/Curse_of_Vengeance_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "AR_02", 
+        "name" : "Urge to Kill",
+        "god" : "Ares",
+        "description" : "Your Attack, Special, and Cast deal more damage.",
+        "img" : "./boons/Urge_to_Kill_I.webp",
+        "prerequisites": []  
+    },    {
+        "id": "AR_03", 
+        "name" : "Battle Rage",
+        "god" : "Ares",
+        "description" : "After slaying a foe, your next Attack or Special deals more damage.",
+        "img" : "./boons/Battle_Rage_I.webp",
+        "prerequisites": []  
+    },
+    {
+        "id": "AR_04", 
+        "name" : "Blood Frenzy",
+        "god" : "Ares",
+        "description" : "After using Death Defiance, deal more damage that encounter.",
+        "img" : "./boons/Blood_Frenzy_I.webp",
+        "prerequisites": []  
+    },
+    {
+        "id": "AR_05", 
+        "name" : "Black Metal",
+        "god" : "Ares",
+        "description" : "Your Blade Rift powers deal damage in a wider area.",
+        "img" : "./boons/Black_Metal_I.webp",
+        "prerequisites": ["Slicing Flare","Slicing Shot", "Blade Dash","Ares' Aid"]  
+    },
+    {
+        "id": "AR_06", 
+        "name" : "Engulfing Vortex",
+        "god" : "Ares",
+        "description" : "Your Blade Rift effects last longer and pull foes in.",
+        "img" : "./boons/Engulfing_Vortex_I.webp",
+        "prerequisites": ["Slicing Flare","Slicing Shot", "Blade Dash","Ares' Aid"]  
+    },
+    {
+        "id": "AR_07", 
+        "name" : "Dire Misfortune",
+        "god" : "Ares",
+        "description" : "Your Doom effects deal more damage when applied multiple times.",
+        "img" : "./boons/Dire_Misfortune_I.webp",
+        "prerequisites": ["Curse of Agony", "Curse of Pain"]  
+    },
+    {
+        "id": "AR_08", 
+        "name" : "Impending Doom",
+        "god" : "Ares",
+        "description" : "Your Doom effects deal more damage, but take+0.5 Sec. to activate.",
+        "img" : "./boons/Impending_Doom_I.webp",
+        "prerequisites": ["Curse of Agony", "Curse of Pain", "Curse of Vengeance"]  
+    },
+    {
+        "id": "AR_09", 
+        "name" : "Vicious Cycle",
+        "god" : "Ares",
+        "type" : "Legendary",
+        "description" : "Your Blade Rift effects deal more damage for each consecutive hit. ",
+        "img" : "./boons/Vicious_Cycle_I.webp",
+        "prerequisites": ["Black Metal", "Engulfing Vortex"]
+    }
     ]
 }
