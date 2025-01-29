@@ -2,73 +2,82 @@
 {
     "boons" : [
     {
-        "id": "Z_00",        
+        "id": "Z_01",        
         "name" : "Heaven's Vengeance",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "After you take damage, your foe is struck by lightning.",
         "img" : "./boons/Heaven's_Vengeance_I.webp",
         "prerequisites": []
     },
     {
-        "id": "Z_01", 
+        "id": "Z_02", 
         "name" : "Lightning Reflexes",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "After you Dash just before getting hit, a bolt strikes a nearby foes.",
         "img" : "./boons/Lightning_Reflexes_I.webp",
         "prerequisites": []
     },
     {
-        "id": "Z_02",
+        "id": "Z_03",
         "name" : "Storm Lightning",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "Your chain-lightning effects bounce more times before expiring.",
         "img" : "./boons/Storm_Lightning_I.webp",
         "prerequisites": ["Lightning Strike", "Electric Shot"]
     },    
     {
-        "id": "Z_03",         
+        "id": "Z_04",         
         "name" : "High Voltage",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "Your lightning bolt effects deal damage in a larger area.",
         "img" : "./boons/High_Voltage_I.webp",
         "prerequisites": ["Thunder Flourish", "Thunder Dash","Zeus' Aid"]
     },  
     {
-        "id": "Z_04",
+        "id": "Z_05",
         "name" : "Double Strike",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "Your lightning bolt effects have a chance to strike twice.",
         "img" : "./boons/Double_Strike_I.webp",
         "prerequisites": []
     },
     {
-        "id": "Z_05",
+        "id": "Z_06",
         "name" : "Static Discharge",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "Your lightning effects also make foes Jolted.",
         "img" : "./boons/Static_Discharge_I.webp",
         "prerequisites": []
     }, 
     {
-        "id": "Z_06",
+        "id": "Z_07",
         "name" : "Clouded Judgment",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "Your God Gauge charges faster when you deal or take damage.",
         "img" : "./boons/Clouded_Judgment_I.webp", 
         "prerequisites": []
     }, 
     {
-        "id": "Z_07", 
+        "id": "Z_08", 
         "name" : "Billowing Strength",
         "god" : "Zeus",
+        "type" : "standard",
         "description" : "After using Call, you deal more damage for 15 Sec.",
         "img" : "./boons/Billowing_Strength_I.webp",
         "prerequisites": []
     }, 
     {
-        "id": "Z_08",
+        "id": "Z_09",
         "name" : "Splitting Bolt",
         "god" : "Zeus",
+        "type" : "legendary",
         "description" : "All your lightning effects create an additional burst.",
         "img" : "./boons/Splitting_Bolt_I.webp",
         "prerequisites": []
@@ -77,6 +86,7 @@
         "id": "A_01",
         "name" : "Dying Lament",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "When foes are slain, they damage nearby foes and inflict Weak. ",
         "img" : "./boons/Dying_Lament_I.webp",
         "prerequisites": []
@@ -85,6 +95,7 @@
         "id": "A_02",
         "name" : "Wave of Despair",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "After you take damage, damage nearby foes and inflict Weak.",
         "img" : "./boons/Wave_of_Despair_I.webp",
         "prerequisites": []
@@ -93,6 +104,7 @@
         "id": "A_03",
         "name" : "Different League",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "Resist some damage from nearby foes' attacks.",
         "img" : "./boons/Different_League_I.webp",
         "prerequisites": []
@@ -101,6 +113,7 @@
         "id": "A_04",
         "name" : "Life Affirmation",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "Any Health chamber rewards are worth more.",
         "img" : "./boons/Life_Affirmation_I.webp",
         "prerequisites": []
@@ -109,6 +122,7 @@
         "id": "A_05",
         "name" : "Empty Inside",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "Your Weak effects have a longer duration.",
         "img" : "./boons/Empty_Inside_I.webp",
         "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
@@ -117,6 +131,7 @@
         "id": "A_06",
         "name" : "Sweet Surrender",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "Weak-afflicted foes are also more susceptible to damage.",
         "img" : "./boons/Sweet_Surrender_I.webp",
         "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
@@ -125,6 +140,7 @@
         "id": "A_07",
         "name" : "Broken Resolve",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "Your Weak effects are more potent.",
         "img" : "./boons/Broken_Resolve_I.webp",
         "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
@@ -133,6 +149,7 @@
         "id": "A_08",
         "name" : "Blown Kiss",
         "god" : "Aphrodite",
+        "type" : "standard",
         "description" : "Your Cast shoots farther and is stronger against undamaged foes.",
         "img" : "./boons/Blown_Kiss_I.webp",
         "prerequisites": ["Crush Shot"]
@@ -141,6 +158,7 @@
         "id": "A_09",
         "name" : "Unhealthy Fixation",
         "god" : "Aphrodite",
+        "type" : "legendary",
         "description" : "Your Weak effects also have a 15% chance to Charm foes.",
         "img" : "./boons/Unhealthy_Fixation_I.webp",
         "prerequisites": ["Heartbreak Strike", "Heartbreak Flourish", "Crush Shot", "Passion Dash"]
@@ -149,6 +167,7 @@
         "id": "P_01",
         "name" : "Typhoon's Fury",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "You deal more damage when slamming foes into barriers.",
         "img" : "./boons/Typhoon's_Fury_I.webp",
         "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
@@ -157,6 +176,7 @@
         "id": "P_02",
         "name" : "Hydraulic Might",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Your Attack and Special are stronger the first 10 Sec. in Encounter(s).",
         "img" : "./boons/Hydraulic_Might_I.webp",
         "prerequisites": []
@@ -165,6 +185,7 @@
         "id": "P_03",
         "name" : "Ocean's Bounty",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Any Gemstone, Darkness or Obols chamber rewards are worth more.",
         "img" : "./boons/Ocean's_Bounty_I.webp",
         "prerequisites": []
@@ -173,6 +194,7 @@
         "id": "P_04",
         "name" : "Sunken Treasure",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Gain an assortment of Gemstone, Darkness, Obols and Health.",
         "img" : "./boons/Sunken_Treasure_I.webp",
         "prerequisites": []
@@ -181,6 +203,7 @@
         "id": "P_05",
         "name" : "Razor Shoals",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Using knock-away effects also Rupture foes.",
         "img" : "./boons/Razor_Shoals_I.webp",
         "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash","Poseidon's Aid"]
@@ -189,6 +212,7 @@
         "id": "P_06",
         "name" : "Boiling Point",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Your God Gauge charges faster when you take damage.",
         "img" : "./boons/Boiling_Point_I.webp",
         "prerequisites": ["Aphrodite's Aid", "Ares' Aid", "Artemis' Aid", "Athena's Aid", "Demeter's Aid", "Dionysus' Aid", "Poseidon's Aid", "Zeus' Aid", "Hades' Aid"]
@@ -197,6 +221,7 @@
         "id": "P_07",
         "name" : "Breaking Wave",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Slamming foes into walls or corners creates a watery blast in the area.",
         "img" : "./boons/Breaking_Wave_I.webp",
         "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
@@ -205,6 +230,7 @@
         "id": "P_08",
         "name" : "Wave Pounding",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Your boons with Knock-Away effects deal bonus damage to bosses.",
         "img" : "./boons/Wave_Pounding_I.webp",
         "prerequisites": ["Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
@@ -213,6 +239,7 @@
         "id": "P_09",
         "name" : "Rip Current",
         "god" : "Poseidon",
+        "type" : "standard",
         "description" : "Your Call pulls in foes and the effect lasts longer.",
         "img" : "./boons/Rip_Current_I.webp",
         "prerequisites": ["Poseidon's Aid"]
@@ -221,6 +248,7 @@
         "id": "P_10",
         "name" : "Huge Catch",
         "god" : "Poseidon",
+        "type" : "legendary",
         "description" : "You have a greater chance to find Fishing Point in each Chamber.",
         "img" : "./boons/Huge_Catch_I.webp",
         "prerequisites": ["Ocean's Bounty", "Sunken Treasure"]
@@ -229,81 +257,261 @@
         "id": "P_11",
         "name" : "Second Wave",
         "god" : "Poseidon",
+        "type" : "legendary",
         "description" : "Your knock-away effects shove foes a second time after the first.",
         "img" : "./boons/Second_Wave_I.webp",
         "prerequisites": ["Breaking Wave","Typhoon's Fury","Tempest Strike", "Tempest Flourish", "Flood Shot", "Tidal Dash", "Poseidon's Aid"]
     },
     {
-        "id": "AR_01",
+        "id": "ARE_01",
         "name" : "Curse of Vengeance",
         "god" : "Ares",
+        "type" : "standard",
         "description" : "After you take damage, inflict Doom on surrounding foes.",
         "img" : "./boons/Curse_of_Vengeance_I.webp",
         "prerequisites": []
     },
     {
-        "id": "AR_02", 
+        "id": "ARE_02", 
         "name" : "Urge to Kill",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "Your Attack, Special, and Cast deal more damage.",
         "img" : "./boons/Urge_to_Kill_I.webp",
         "prerequisites": []  
     },    {
-        "id": "AR_03", 
+        "id": "ARE_03", 
         "name" : "Battle Rage",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "After slaying a foe, your next Attack or Special deals more damage.",
         "img" : "./boons/Battle_Rage_I.webp",
         "prerequisites": []  
     },
     {
-        "id": "AR_04", 
+        "id": "ARE_04", 
         "name" : "Blood Frenzy",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "After using Death Defiance, deal more damage that encounter.",
         "img" : "./boons/Blood_Frenzy_I.webp",
         "prerequisites": []  
     },
     {
-        "id": "AR_05", 
+        "id": "ARE_05", 
         "name" : "Black Metal",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "Your Blade Rift powers deal damage in a wider area.",
         "img" : "./boons/Black_Metal_I.webp",
         "prerequisites": ["Slicing Flare","Slicing Shot", "Blade Dash","Ares' Aid"]  
     },
     {
-        "id": "AR_06", 
+        "id": "ARE_06", 
         "name" : "Engulfing Vortex",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "Your Blade Rift effects last longer and pull foes in.",
         "img" : "./boons/Engulfing_Vortex_I.webp",
         "prerequisites": ["Slicing Flare","Slicing Shot", "Blade Dash","Ares' Aid"]  
     },
     {
-        "id": "AR_07", 
+        "id": "ARE_07", 
         "name" : "Dire Misfortune",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "Your Doom effects deal more damage when applied multiple times.",
         "img" : "./boons/Dire_Misfortune_I.webp",
         "prerequisites": ["Curse of Agony", "Curse of Pain"]  
     },
     {
-        "id": "AR_08", 
+        "id": "ARE_08", 
         "name" : "Impending Doom",
         "god" : "Ares",
+        "type" : "standard",        
         "description" : "Your Doom effects deal more damage, but take+0.5 Sec. to activate.",
         "img" : "./boons/Impending_Doom_I.webp",
         "prerequisites": ["Curse of Agony", "Curse of Pain", "Curse of Vengeance"]  
     },
     {
-        "id": "AR_09", 
+        "id": "ARE_09", 
         "name" : "Vicious Cycle",
         "god" : "Ares",
-        "type" : "Legendary",
+        "type" : "legendary",
         "description" : "Your Blade Rift effects deal more damage for each consecutive hit. ",
         "img" : "./boons/Vicious_Cycle_I.webp",
         "prerequisites": ["Black Metal", "Engulfing Vortex"]
+    },
+    {
+        "id": "ATH_01", 
+        "name" : "Holy Shield",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "After you take damage, damage nearby foes and briefly Deflect.",
+        "img" : "./boons/Holy_Shield_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "ATH_02", 
+        "name" : "Bronze Skin",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "Resist damage from foes' attacks.",
+        "img" : "./boons/Bronze_Skin_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "ATH_03", 
+        "name" : "Sure Footing",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "Resist damage from Traps.",
+        "img" : "./boons/Sure_Footing_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "ATH_04", 
+        "name" : "Proud Bearing",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "You begin each Encounter with your God Gauge partly full.",
+        "img" : "./boons/Proud_Bearing_I.webp",
+        "prerequisites": ["Aphrodite's Aid", "Ares' Aid", "Artemis' Aid", "Athena's Aid", "Demeter's Aid", "Dionysus' Aid", "Poseidon's Aid", "Zeus' Aid", "Hades' Aid."]
+    },
+    {
+        "id": "ATH_05", 
+        "name" : "Blinding Flash",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "Your abilities that can Deflect also make foes Exposed.",
+        "img" : "./boons/Blinding_Flash_I.webp",
+        "prerequisites": ["Divine Strike", "Divine Flourish", "Phalanx Shot", "Divine Dash"]
+    },
+    {
+        "id": "ATH_06", 
+        "name" : "Brilliant Riposte",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "When you Deflect attacks, they deal more damage.",
+        "img" : "./boons/Brilliant_Riposte_I.webp",
+        "prerequisites": ["Divine Strike", "Divine Flourish", "Divine Dash", "Holy Shield"]
+    },
+    {
+        "id": "ATH_07", 
+        "name" : "Deathless Stand",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "Death Defiance makes you Impervious longer. Replenish 1 charge now.",
+        "img" : "./boons/Deathless_Stand_I.webp",
+        "prerequisites": ["Divine Strike", "Divine Flourish", "Phalanx Shot", "Divine Dash"]
+    },
+    {
+        "id": "ATH_08", 
+        "name" : "Last Stand",
+        "god" : "Athena",
+        "type" : "standard",
+        "description" : "Death Defiance restores more Health than usual. Replenish 1 charge now.",
+        "img" : "./boons/Last_Stand_I.webp",
+        "prerequisites": ["Divine Strike", "Divine Flourish", "Phalanx Shot", "Divine Dash"]
+    },
+    {
+        "id": "ATH_09", 
+        "name" : "Divine Protection",
+        "god" : "Athena",
+        "type" : "legendary",
+        "description" : "You have a barrier that negates incoming damage. Barrier Cooldown: 20 Sec.",
+        "img" : "./boons/Divine_Protection_I.webp",
+        "prerequisites": ["Brilliant Riposte"]
+    },
+    {
+        "id": "ART_01", 
+        "name" : "Pressure Points",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "Any damage you deal has a chance to be Critical.",
+        "img" : "./boons/Pressure_Points_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "ART_02", 
+        "name" : "Exit Wounds",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "Your foes take damage when your Cast Ammo stuck in them is dislodged.",
+        "img" : "./boons/Exit_Wounds_I.webp",
+        "prerequisites": ["Crush Shot", "True Shot", "Phalanx Shot", "Flood Shot","Electric Shot"]
+    },
+    {
+        "id": "ART_03", 
+        "name" : "Hide Breaker",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "Your Critical effects deal even more damage to Armor.",
+        "img" : "./boons/Hide_Breaker_I.webp",
+        "prerequisites": ["Deadly Strike","Deadly Flourish", "True Shot", "Artemis' Aid", "Pressure Points"]
+    },
+    {
+        "id": "ART_04", 
+        "name" : "Clean Kill",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "Your Critical effects deal even more damage.",
+        "img" : "./boons/Clean_Kill_I.webp",
+        "prerequisites": ["Deadly Strike", "Deadly Flourish", "True Shot", "Artemis' Aid", "Pressure Points"]
+    },
+    {
+        "id": "ART_05", 
+        "name" : "Hunter Instinct",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "Your God Gauge charges faster when you deal Critical damage.",
+        "img" : "./boons/Hunter_Instinct_I.webp",
+        "prerequisites": ["Deadly Strike","Deadly Flourish", "True Shot", "Pressure Points"]
+    },
+    {
+        "id": "ART_06", 
+        "name" : "Hunter's Mark",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "After you deal Critical damage to a foe, a foe near it is Marked.",
+        "img" : "./boons/Hunter's_Mark_I.webp",
+        "prerequisites": ["Deadly Strike", "Deadly Flourish", "True Shot", "Artemis' Aid", "Pressure Points"]
+    },
+    {
+        "id": "ART_07", 
+        "name" : "Support Fire",
+        "god" : "Artemis",
+        "type" : "normal",
+        "description" : "After you Cast, or hit with an Attack or Special, fire a seeking arrow.",
+        "img" : "./boons/Support_Fire_I.webp",
+        "prerequisites": ["Deadly Strike", "Deadly Flourish", "True Shot", "Hunter Dash", "Artemis' Aid", "Pressure Points"]
+    },
+    {
+        "id": "ART_08", 
+        "name" : "Fully Loaded",
+        "god" : "Artemis",
+        "type" : "legendary",
+        "description" : "Your Special is stronger, with +20% Critical chance.",
+        "img" : "./boons/Fully_Loaded_I.webp",
+        "prerequisites": ["Exit Wounds","Pressure Points", "Support Fire"]
+    },
+    {
+        "id": "DEM_01", 
+        "name" : "Frozen Touch",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "After you take damage, damage and completely Chill your foe.",
+        "img" : "./boons/Fully_Loaded_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DEM_02", 
+        "name" : "Rare Crop",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "Your Boons become Common, then gain Rarity every 3 Encounter(s).",
+        "img" : "./boons/Fully_Loaded_I.webp",
+        "prerequisites": []
     }
     ]
 }
