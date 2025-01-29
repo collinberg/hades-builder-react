@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 
 
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
+
+import buildReducer from "./controller/buildReducer";
 
 import BuildSelector from "./components/BuildSelector";
 import AppNav from "./components/AppNav";
@@ -103,7 +105,7 @@ const initialBuildState: Build = {
 
 function App() {
 
-  const [build, setBuild] = useState<Build>(initialBuildState);
+  const [build, dispatch] = useReducer<React.Reducer<Build, any>>(buildReducer, initialBuildState);
   const [boonList, setBoonList] = useState<Boon[]>([]);
 
   const [selectedGod, setSelectedGod] = useState<string | null>(null);
@@ -124,52 +126,42 @@ function App() {
   const updateBuild = (item:number) => {
     setActiveIndex(2),
     setAspect(item),
-    setBuild( build => (
-      {...build,
-        weapon: weaponsData[item].id,
-      }
-    ));
-    
+    dispatch({
+      type: 'weapon',
+      weapon: weaponsData[item].id
+    })
   }
 
   const updateAspect = (item:number) => {
     setActiveIndex(0),
-    setBuild( build => (
-      {...build,
-        aspect: {
-          number: weaponsData[aspect].aspects[item].number,
-          id: weaponsData[aspect].aspects[item].id,
-          name: weaponsData[aspect].aspects[item].name,
-          img: weaponsData[aspect].aspects[item].img,
-        }
+    dispatch({
+      type: 'aspect',
+      aspect: {
+        number: weaponsData[aspect].aspects[item].number,
+        id: weaponsData[aspect].aspects[item].id,
+        name: weaponsData[aspect].aspects[item].name,
+        img: weaponsData[aspect].aspects[item].img,
       }
-    ));
+    })
   }
 
   const updateAbility = (name:string, ability:string,data:Boon[]) => {
     setActiveIndex(0);
-    const selected: any = data.find( selected => selected.name === name);
-
-    setBuild( build => (
-      {...build,
-        [ability]: selected
-      }
-    ));
-    
-
+    const selected = data.find( selected => selected.name === name);
+    dispatch({
+      type: 'ability',
+      abilityType: ability,
+      ability: selected
+    })
   }
-
 
   const updateBoons = (boon : Boon) => {
     setActiveIndex(0);
-
-    setBuild( build => (
-      {...build,
-        boons: [...build.boons, boon]
-      }
-    ));
-    
-
+    dispatch({
+      type: 'boons',
+      newBoon: boon
+    })
+  
   }
   //This function accepts an array of Id's. Only one Id needs to be found for it to return as false.
   const isCardDisabled = (prerequisite: string[]) => {
@@ -219,7 +211,7 @@ function App() {
     <>
       <div className="site-wrap">
         <AppNav onResetClick={() => {
-            setBuild(initialBuildState)
+            dispatch({type: 'reset',payload: initialBuildState});
             setSelectedGod(null)
         }
          } />
