@@ -80,7 +80,7 @@
         "type" : "legendary",
         "description" : "All your lightning effects create an additional burst.",
         "img" : "./boons/Splitting_Bolt_I.webp",
-        "prerequisites": []
+        "prerequisites": ["Storm Lightning", "High Voltage", "Double Strike"]
     },    
     {
         "id": "A_01",
@@ -501,7 +501,7 @@
         "god" : "Demeter",
         "type" : "normal",
         "description" : "After you take damage, damage and completely Chill your foe.",
-        "img" : "./boons/Fully_Loaded_I.webp",
+        "img" : "./boons/Frozen_Touch_I.webp",
         "prerequisites": []
     },
     {
@@ -510,8 +510,152 @@
         "god" : "Demeter",
         "type" : "normal",
         "description" : "Your Boons become Common, then gain Rarity every 3 Encounter(s).",
-        "img" : "./boons/Fully_Loaded_I.webp",
+        "img" : "./boons/Rare_Crop_I.webp",
         "prerequisites": []
+    },
+    {
+        "id": "DEM_03", 
+        "name" : "Ravenous Will",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "While you have no Cast Ammo, take 10% less damage and deal more.",
+        "img" : "./boons/Ravenous_Will_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DEM_04", 
+        "name" : "Nourished Soul",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "Any Health effects are more potent. Restore +30% now.",
+        "img" : "./boons/Nourished_Soul_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DEM_05", 
+        "name" : "Snow Burst",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "Whenever you Cast, damage nearby foes and inflict Chill.",
+        "img" : "./boons/Snow_Burst_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DEM_06", 
+        "name" : "Arctic Blast",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "Applying 10 stacks of Chill causes a blast, clearing the effect.",
+        "img" : "./boons/Arctic_Blast_I.webp",
+        "prerequisites": ["Frost Strike", "Frost Flourish", "Mistral Dash", "Demeter's Aid", "Snow Burst"]
+    },
+    {
+        "id": "DEM_07", 
+        "name" : "Killing Freeze",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "When all foes are Chill afflicted, they become Slow and Decay.",
+        "img" : "./boons/Killing_Freeze_I.webp",
+        "prerequisites": ["Frost Strike", "Frost Flourish", "Mistral Dash", "Demeter's Aid", "Snow Burst"]
+    },
+    {
+        "id": "DEM_08", 
+        "name" : "Glacial Glare",
+        "god" : "Demeter",
+        "type" : "normal",
+        "description" : "Your Cast fires longer and inflicts Chill.",
+        "img" : "./boons/Glacial_Glare_I.webp",
+        "prerequisites": ["Crystal Beam"]
+    },
+    {
+        "id": "DEM_09", 
+        "name" : "Winter Harvest",
+        "god" : "Demeter",
+        "type" : "legendary",
+        "description" : "Chill-affected foes shatter at 10% HP, inflicting Chill nearby. ",
+        "img" : "./boons/Winter_Harvest_I.webp",
+        "prerequisites": ["Ravenous Will", "Arctic Blast", "Killing Freeze"]
+    },
+    {
+        "id": "DIO_01", 
+        "name" : "After Party",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "If your Health is low after Encounters, restore to the threshold.",
+        "img" : "./boons/After_Party_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DIO_02", 
+        "name" : "Positive Outlook",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "Take less damage while at 40% Health or below.",
+        "img" : "./boons/Positive_Outlook_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DIO_03", 
+        "name" : "Premium Vintage",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "Gain Health when you pick up Nectar. Receive 1 Nectar now.",
+        "img" : "./boons/Premium_Vintage_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DIO_04", 
+        "name" : "Strong Drink",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "Using a Fountain restores all Health and gives you bonus damage.",
+        "img" : "./boons/Strong_Drink_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DIO_05", 
+        "name" : "Bad Influence",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "Deal more damage while 3 foes are Hangover-afflicted.",
+        "img" : "./boons/Bad_Influence_I.webp",
+        "prerequisites": ["Drunken Strike", "Drunken Flourish", "Drunken Dash", "Dionysus' Aid"]
+    },
+    {
+        "id": "DIO_06", 
+        "name" : "Numbing Sensation",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "Your Hangover effects also make foes move slower.",
+        "img" : "./boons/Numbing_Sensation_I.webp",
+        "prerequisites": ["Drunken Strike", "Drunken Flourish", "Drunken Dash", "Dionysus' Aid"]
+    },
+    {
+        "id": "DIO_07", 
+        "name" : "Peer Pressure",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "Your Hangover effects can stack more times against Weak foes.",
+        "img" : "./boons/Peer_Pressure_I.webp",
+        "prerequisites": ["Drunken Strike", "Drunken Flourish", "Drunken Dash", "Dionysus' Aid"]
+    },
+    {
+        "id": "DIO_08", 
+        "name" : "High Tolerance",
+        "god" : "Dionysus",
+        "type" : "normal",
+        "description" : "You have a 6% chance to deal Critical damage.",
+        "img" : "./boons/High_Tolerance_I.webp",
+        "prerequisites": []
+    },
+    {
+        "id": "DIO_09", 
+        "name" : "Black Out",
+        "god" : "Dionysus",
+        "type" : "legendary",
+        "description" : "Your Hangover effects can stack more times.",
+        "img" : "./boons/Black_Out_I.webp",
+        "prerequisites": ["Bad Influence", "Numbing Sensation", "Peer Pressure"]
     }
-    ]
+]
 }
