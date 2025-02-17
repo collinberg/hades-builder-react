@@ -244,6 +244,10 @@ main {
   flex-direction: row;
 }
 
+.boon-card img.legendary {
+  filter: drop-shadow(3px 3px 0px orange) drop-shadow(-3px -3px 0 orange) drop-shadow(3px -3px 0 orange) drop-shadow(-3px 3px 0 orange);
+}
+
 .boon-card p {
   line-height: 1.2rem;
 }
@@ -258,18 +262,8 @@ main {
   cursor: default;
 }
 
-.card-overlay {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 100%;
-  color: white;
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(5px);
-  background-color: #00000012;
-  justify-content: center;
+.boon-card.disabled h3 {
+  opacity: 0.5;
 }
 
 .boon-list {
