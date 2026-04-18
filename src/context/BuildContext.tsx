@@ -1,3 +1,15 @@
+export type God =
+  | "Zeus"
+  | "Poseidon"
+  | "Athena"
+  | "Ares"
+  | "Artemis"
+  | "Dionysus"
+  | "Aphrodite"
+  | "Demeter";
+
+export type BoonSlot = "attack" | "special" | "dash" | "call" | "cast";
+
 export interface Weapon {
   type: string;
   id: string;
@@ -15,31 +27,22 @@ export interface Aspect {
 export interface Boon {
   id: string;
   name: string;
-  god: string;
+  god: God;
   description: string;
   img: string;
-  type?: string;
+  slots: BoonSlot[];
+  isLegendary?: boolean;
+  isDuo?: boolean;
   prerequisites?: string[];
 }
 
 export interface Build {
-  weapon: string;
-  aspect: string;
-  attack: Boon;
-  special: Boon;
-  dash: Boon;
-  call: Boon;
-  cast: Boon;
-  boons: Boon[];
-}
-
-export interface Build {
-  weapon: string;
-  aspect: string;
-  attack: Boon;
-  special: Boon;
-  dash: Boon;
-  call: Boon;
-  cast: Boon;
-  boons: Boon[];
+  weapon: string | null;
+  aspect: string | null;
+  attack: string | null;
+  special: string | null;
+  dash: string | null;
+  cast: string | null;
+  call: string | null;
+  label: string;
 }

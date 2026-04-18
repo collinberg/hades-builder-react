@@ -1,5 +1,4 @@
 import { useState, useEffect, useReducer } from "react";
-import { useSearchParams } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
@@ -22,49 +21,9 @@ import { call } from "./data/BoonsCall";
 
 import "./App.css";
 
-export interface Weapon {
-  type: string;
-  id: string;
-  name: string;
-  img: string;
-}
-
-export interface Aspect {
-  number: number;
-  id: string;
-  name: string;
-  img: string;
-}
-
-export interface Boon {
-  id: string;
-  name: string;
-  god: string;
-  description: string;
-  img: string;
-  type?: string;
-  prerequisites?: string[];
-}
-
-export interface Build {
-  weapon: string;
-  aspect: Aspect;
-  attack: Boon;
-  special: Boon;
-  dash: Boon;
-  call: Boon;
-  cast: Boon;
-  boons: Boon[];
-}
-
 const initialBuildState: Build = {
   weapon: "",
-  aspect: {
-    number: 0,
-    id: "",
-    name: "",
-    img: "",
-  },
+  aspect: "",
   attack: {
     id: "",
     name: "",
@@ -106,7 +65,7 @@ const initialBuildState: Build = {
 function App() {
   const [build, dispatch] = useReducer<React.Reducer<Build, any>>(
     buildReducer,
-    initialBuildState
+    initialBuildState,
   );
   const [boonList, setBoonList] = useState<Boon[]>([]);
 
@@ -126,25 +85,20 @@ function App() {
     : boonList;
 
   const updateBuild = (item: number) => {
-    setActiveIndex(2),
+    (setActiveIndex(2),
       setAspect(item),
       dispatch({
         type: "weapon",
         weapon: weaponsData[item].id,
-      });
+      }));
   };
 
   const updateAspect = (item: number) => {
-    setActiveIndex(0),
+    (setActiveIndex(0),
       dispatch({
         type: "aspect",
-        aspect: {
-          number: weaponsData[aspect].aspects[item].number,
-          id: weaponsData[aspect].aspects[item].id,
-          name: weaponsData[aspect].aspects[item].name,
-          img: weaponsData[aspect].aspects[item].img,
-        },
-      });
+        aspect: weaponsData[aspect].aspects[item].id,
+      }));
   };
 
   const updateAbility = (name: string, ability: string, data: Boon[]) => {
@@ -164,6 +118,7 @@ function App() {
       newBoon: boon,
     });
   };
+
   //This function accepts an array of Id's. Only one Id needs to be found for it to return as false.
   const isCardDisabled = (prerequisite: string[], boonType?: string) => {
     //If there are no prerequisites, return false.
@@ -179,7 +134,7 @@ function App() {
         build.special.name === prereq ||
         build.dash.name === prereq ||
         build.cast.name === prereq ||
-        build.call.name === prereq
+        build.call.name === prereq,
     );
     if (found.length > 0 && boonType == "standard") {
       return false;
@@ -203,7 +158,7 @@ function App() {
       if (process.env.NODE_ENV !== "development") {
         try {
           const res = await fetch(
-            "https://collinberg.github.io/hades-builder-react/data/boons.json"
+            "https://collinberg.github.io/hades-builder-react/data/boons.json",
           );
           const boonList = await res.json();
           setBoonList(boonList.boons);
@@ -249,6 +204,7 @@ function App() {
                 <BuildSelector
                   onClick={() => setActiveIndex(2)}
                   attribute={build.aspect}
+                  weaponData={build.weapon}
                 >
                   Aspect
                 </BuildSelector>
@@ -398,10 +354,10 @@ function App() {
                           onClick={() => updateBoons(boon)}
                           disabled={isCardDisabled(
                             boon.prerequisites || [],
-                            boon.type
+                            boon.type,
                           )}
                         />
-                      )
+                      ),
                   )}
               </div>
             </section>
