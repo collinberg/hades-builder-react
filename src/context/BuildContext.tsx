@@ -1,3 +1,5 @@
+import { createContext, useContext, useReducer } from "react";
+
 export type God =
   | "Zeus"
   | "Poseidon"
@@ -85,4 +87,30 @@ export function buildReducer(state: Build, action: Action): Build {
     case "HYDRATE":
       return action.build;
   }
+}
+
+type ContextValue = {
+  build: Build;
+  dispatch: React.Dispatch<Action>;
+};
+
+const BuildContext = createContext<ContextValue | undefined>(undefined);
+
+// Provider component to wrap the app and provide the build state and dispatch function to its children.
+// This allows any component in the app to access and update the build state using the useBuild hook.
+export function BuildProvider({ children }: { children: React.ReactNode }) {
+  const [build, dispatch] = useReducer(buildReducer, initialBuildState);
+
+  return (
+    <BuildContext.Provider value={{ build, dispatch }}>
+      {children}
+    </BuildContext.Provider>
+  );
+}
+
+// Custom hook to access the build context. It throws an error if used outside of the BuildProvider.
+export function useBuild() {
+  const ctx = useContext(BuildContext);
+  if (!ctx) throw new Error("useBuild must be used inside BuildProvider");
+  return ctx;
 }
