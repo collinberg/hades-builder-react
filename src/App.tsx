@@ -3,15 +3,18 @@ import { useState, useEffect, useReducer } from "react";
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
 
-import buildReducer from "./controller/buildReducer";
+//Logic imports
+import { initialBuildState, buildReducer } from "./context/BuildContext";
+import type { Build, Action, Boon, BoonSlot } from "./context/BuildContext";
 
+//Component imports
 import BuildSelector from "./components/BuildSelector";
 import AppNav from "./components/AppNav";
 import FilterMenu from "./components/FilterMenu";
 import Card from "./components/Card";
 import Weapons from "./components/Weapons";
-import Boon from "./components/Boon";
 
+//Data imports
 import { weaponsData } from "./data/Weapons";
 import { attack } from "./data/BoonsAttack";
 import { special } from "./data/BoonsSpecial";
@@ -21,49 +24,8 @@ import { call } from "./data/BoonsCall";
 
 import "./App.css";
 
-const initialBuildState: Build = {
-  weapon: "",
-  aspect: "",
-  attack: {
-    id: "",
-    name: "",
-    god: "",
-    description: "",
-    img: "",
-  },
-  special: {
-    id: "",
-    name: "",
-    god: "",
-    description: "",
-    img: "",
-  },
-  dash: {
-    id: "",
-    name: "",
-    god: "",
-    description: "",
-    img: "",
-  },
-  call: {
-    id: "",
-    name: "",
-    god: "",
-    description: "",
-    img: "",
-  },
-  cast: {
-    id: "",
-    name: "",
-    god: "",
-    description: "",
-    img: "",
-  },
-  boons: [],
-};
-
 function App() {
-  const [build, dispatch] = useReducer<React.Reducer<Build, any>>(
+  const [build, dispatch] = useReducer<React.Reducer<Build, Action>>(
     buildReducer,
     initialBuildState,
   );
@@ -88,70 +50,42 @@ function App() {
     (setActiveIndex(2),
       setAspect(item),
       dispatch({
-        type: "weapon",
-        weapon: weaponsData[item].id,
+        type: "SET_WEAPON",
+        weaponId: weaponsData[item].id,
       }));
   };
 
   const updateAspect = (item: number) => {
     (setActiveIndex(0),
       dispatch({
-        type: "aspect",
-        aspect: weaponsData[aspect].aspects[item].id,
+        type: "SET_ASPECT",
+        aspectId: weaponsData[aspect].aspects[item].id,
       }));
   };
 
-  const updateAbility = (name: string, ability: string, data: Boon[]) => {
+  const updateAbility = (name: string, ability: BoonSlot, data: Boon[]) => {
     setActiveIndex(0);
     const selected = data.find((selected) => selected.name === name);
+    if (!selected) return;
+
     dispatch({
-      type: "ability",
-      abilityType: ability,
-      ability: selected,
+      type: "SET_BOON",
+      slot: ability,
+      boonId: selected.id,
     });
   };
 
   const updateBoons = (boon: Boon) => {
     setActiveIndex(0);
     dispatch({
-      type: "boons",
-      newBoon: boon,
+      type: "SET_BOON",
+      slot: "attack",
+      boonId: boon.id,
     });
   };
 
-  //This function accepts an array of Id's. Only one Id needs to be found for it to return as false.
-  const isCardDisabled = (prerequisite: string[], boonType?: string) => {
-    //If there are no prerequisites, return false.
-    //Cards should be active by default
-    if (prerequisite?.length == 0) return false;
-    //If there are prerequisites, check if any of them are in the build.boons array
-    //If any of them are found, return false. because returning true would disable the card.
-    //Haystack, Needle
-    const found = prerequisite.filter(
-      (prereq) =>
-        build.boons.some((boon) => boon.name === prereq) ||
-        build.attack.name === prereq ||
-        build.special.name === prereq ||
-        build.dash.name === prereq ||
-        build.cast.name === prereq ||
-        build.call.name === prereq,
-    );
-    if (found.length > 0 && boonType == "standard") {
-      return false;
-    } else {
-      return true;
-    }
-
-    // return !prerequisite.some(
-    //   (prereq) =>
-    //     build.boons.some((boon) => prereq === boon.name) ||
-    //     build.attack.name === prereq ||
-    //     build.special.name === prereq ||
-    //     build.dash.name === prereq ||
-    //     build.cast.name === prereq ||
-    //     build.call.name === prereq
-    // );
-  };
+  // Replaced by validation layer in Step 3
+  const isCardDisabled = (_prerequisite: string[]) => false;
 
   useEffect(function () {
     async function fetchData() {
@@ -184,7 +118,7 @@ function App() {
       <div className='site-wrap'>
         <AppNav
           onResetClick={() => {
-            dispatch({ type: "reset", payload: initialBuildState });
+            dispatch({ type: "RESET" });
             setSelectedGod(null);
           }}
         />
@@ -245,22 +179,6 @@ function App() {
             </section>
           </Sidebar>
           <Main>
-            <header className='mb-4'>
-              <div className='header-inner flex justify-center flex-col'>
-                {build.boons.length === 0 ? (
-                  <span className='text-center text-white block py-5 text-2xl'>
-                    No Boons Added
-                  </span>
-                ) : (
-                  <ul className='boon-list'>
-                    {" "}
-                    {build.boons.map((boon) => (
-                      <Boon {...boon} key={boon.id} />
-                    ))}{" "}
-                  </ul>
-                )}
-              </div>
-            </header>
             <FilterMenu
               onFilterClick={handleFilterClick}
               activeGod={selectedGod}
@@ -344,21 +262,15 @@ function App() {
               </h2>
               <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
                 {filteredBoons.length > 0 &&
-                  filteredBoons?.map(
-                    (boon) =>
-                      //If the build.boons array does not contain the current boon, display the card.
-                      !build.boons.some((b) => b.id === boon.id) && (
-                        <Card
-                          {...boon}
-                          key={boon.id}
-                          onClick={() => updateBoons(boon)}
-                          disabled={isCardDisabled(
-                            boon.prerequisites || [],
-                            boon.type,
-                          )}
-                        />
-                      ),
-                  )}
+                  filteredBoons?.map((boon) => (
+                    //If the build.boons array does not contain the current boon, display the card.
+                    <Card
+                      {...boon}
+                      key={boon.id}
+                      onClick={() => updateBoons(boon)}
+                      disabled={isCardDisabled(boon.prerequisites || [])}
+                    />
+                  ))}
               </div>
             </section>
           </Main>
