@@ -1,11 +1,11 @@
 import { Boon, Weapon, Aspect } from "../App";
-import { weaponsData } from "../data/Weapons";
+import { weaponsData } from "../data/weapons";
 
 export interface Props {
   children: string;
   attribute: Boon | string;
   onClick: () => void;
-  weaponData?: string;
+  weaponData?: string | null;
 }
 
 const BuildSelector = ({
@@ -29,7 +29,7 @@ const BuildSelector = ({
     case "Aspect":
       const weapon = weaponsData.find((weapon) => weapon.id === weaponData);
       displayAttribute = weapon?.aspects.find(
-        (aspect) => aspect.id === attribute
+        (aspect) => aspect.id === attribute,
       );
       console.log(weaponsData[1].aspects);
       break;
