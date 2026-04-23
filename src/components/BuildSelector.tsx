@@ -1,5 +1,7 @@
-import { Boon, Weapon, Aspect } from "../App";
+import type { Boon, Weapon, Aspect } from "../context/BuildContext";
 import { weaponsData } from "../data/weapons";
+
+import { boons } from "../data/boons";
 
 export interface Props {
   children: string;
@@ -34,7 +36,7 @@ const BuildSelector = ({
       console.log(weaponsData[1].aspects);
       break;
     default:
-      displayAttribute = attribute;
+      displayAttribute = boons.find((b) => b.id === attribute);
   }
 
   return (
