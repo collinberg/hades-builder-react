@@ -2,14 +2,14 @@ import { useState } from "react";
 
 //Logic imports
 import { BuildProvider, useBuild } from "./context/BuildContext";
-import type { BoonSlot, Boon } from "./context/BuildContext";
+import type { BoonSlot, Boon, God } from "./context/BuildContext";
 
 //Component imports
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import BuildSelector from "./components/BuildSelector";
 import AppNav from "./components/AppNav";
-//import FilterMenu from "./components/FilterMenu";
+import FilterMenu from "./components/FilterMenu";
 import Card from "./components/Card";
 import Weapons from "./components/Weapons";
 
@@ -32,6 +32,7 @@ function App() {
 function AppInner() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [aspect, setAspect] = useState(0);
+  const [activeGod, setActiveGod] = useState<God | null>(null);
   const { build, dispatch } = useBuild();
 
   const updateBuild = (item: number) => {
@@ -99,31 +100,31 @@ function AppInner() {
           <section id='aspect-side'>
             <h2>Abilities</h2>
             <BuildSelector
-              onClick={() => setActiveIndex(3)}
+              onClick={() => { setActiveIndex(3); setActiveGod(null); }}
               attribute={build.attack}
             >
               Attack
             </BuildSelector>
             <BuildSelector
-              onClick={() => setActiveIndex(4)}
+              onClick={() => { setActiveIndex(4); setActiveGod(null); }}
               attribute={build.special}
             >
               Special
             </BuildSelector>
             <BuildSelector
-              onClick={() => setActiveIndex(5)}
+              onClick={() => { setActiveIndex(5); setActiveGod(null); }}
               attribute={build.cast}
             >
               Cast
             </BuildSelector>
             <BuildSelector
-              onClick={() => setActiveIndex(6)}
+              onClick={() => { setActiveIndex(6); setActiveGod(null); }}
               attribute={build.dash}
             >
               Dash
             </BuildSelector>
             <BuildSelector
-              onClick={() => setActiveIndex(7)}
+              onClick={() => { setActiveIndex(7); setActiveGod(null); }}
               attribute={build.call}
             >
               Call
@@ -148,51 +149,26 @@ function AppInner() {
           )}
 
           <section className='abilities'>
+            {activeIndex >= 3 && activeIndex <= 7 && (
+              <FilterMenu
+                activeGod={activeGod}
+                onFilterClick={(god) => setActiveGod(activeGod === god ? null : god)}
+              />
+            )}
             <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-5'>
-              {activeIndex == 3 &&
-                getAvailableBoons(build, "attack", boons).map((boon) => (
-                  <Card
-                    {...boon}
-                    key={boon.id}
-                    onClick={() => updateAbility(boon.name, "attack", boons)}
-                  />
-                ))}
-
-              {activeIndex == 4 &&
-                getAvailableBoons(build, "special", boons).map((boon) => (
-                  <Card
-                    {...boon}
-                    key={boon.id}
-                    onClick={() => updateAbility(boon.name, "special", boons)}
-                  />
-                ))}
-
-              {activeIndex == 5 &&
-                getAvailableBoons(build, "cast", boons).map((boon) => (
-                  <Card
-                    {...boon}
-                    key={boon.id}
-                    onClick={() => updateAbility(boon.name, "cast", boons)}
-                  />
-                ))}
-
-              {activeIndex == 6 &&
-                getAvailableBoons(build, "dash", boons).map((boon) => (
-                  <Card
-                    {...boon}
-                    key={boon.id}
-                    onClick={() => updateAbility(boon.name, "dash", boons)}
-                  />
-                ))}
-
-              {activeIndex == 7 &&
-                getAvailableBoons(build, "call", boons).map((boon) => (
-                  <Card
-                    {...boon}
-                    key={boon.id}
-                    onClick={() => updateAbility(boon.name, "call", boons)}
-                  />
-                ))}
+              {(["attack", "special", "cast", "dash", "call"] as const).map((slot, i) =>
+                activeIndex === i + 3
+                  ? getAvailableBoons(build, slot, boons)
+                      .filter((b) => !activeGod || b.god === activeGod)
+                      .map((boon) => (
+                        <Card
+                          {...boon}
+                          key={boon.id}
+                          onClick={() => updateAbility(boon.name, slot, boons)}
+                        />
+                      ))
+                  : null
+              )}
             </div>
           </section>
         </Main>
