@@ -6,6 +6,7 @@ import Artemis_symbol from '../assets/img/symbols/Artemis_symbol.webp';
 import Demeter_symbol from '../assets/img/symbols/Demeter_symbol.webp';
 import Dionysus_symbol from '../assets/img/symbols/Dionysus_symbol.webp';
 import Aphrodite_symbol from '../assets/img/symbols/Aphrodite_symbol.webp';
+import Hermes_symbol from '../assets/img/symbols/Hermes_symbol.webp';
 
 import type { God } from '../context/BuildContext';
 
@@ -20,4 +21,5 @@ export const godSymbols: GodSymbol[] = [
   { god: 'Demeter',   img: Demeter_symbol   },
   { god: 'Dionysus',  img: Dionysus_symbol  },
   { god: 'Aphrodite', img: Aphrodite_symbol },
+  { god: 'Hermes',    img: Hermes_symbol    },
 ];
