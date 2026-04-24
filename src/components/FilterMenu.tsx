@@ -2,11 +2,11 @@ import type { God } from "../context/BuildContext";
 import { godSymbols } from "../data/gods";
 
 interface Props {
-  onFilterClick: (god: God) => void;
   activeGod: God | null;
+  onFilterClick: (god: God) => void;
 }
 
-const FilterMenu = ({ onFilterClick, activeGod }: Props) => {
+const FilterMenu = ({ activeGod, onFilterClick }: Props) => {
   return (
     <section id='main-menu'>
       <ul className='nav type-nav'>

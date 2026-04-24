@@ -1,22 +1,18 @@
 import { useState } from "react";
 
-//Logic imports
 import { BuildProvider, useBuild } from "./context/BuildContext";
-import type { BoonSlot, Boon, God } from "./context/BuildContext";
+import type { BoonSlot, God } from "./context/BuildContext";
 
-//Component imports
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import BuildSelector from "./components/BuildSelector";
 import AppNav from "./components/AppNav";
 import FilterMenu from "./components/FilterMenu";
-import Card from "./components/Card";
+import BoonList from "./components/BoonList";
 import Weapons from "./components/Weapons";
 
-//Data imports
 import { weaponsData } from "./data/weapons";
 import { boons } from "./data/boons";
-
 import { getAvailableBoons } from "./rules/validation";
 
 import "./App.css";
@@ -29,43 +25,55 @@ function App() {
   );
 }
 
+const ABILITY_SLOTS: [BoonSlot, number][] = [
+  ["attack", 3],
+  ["special", 4],
+  ["cast", 5],
+  ["dash", 6],
+  ["call", 7],
+];
+
 function AppInner() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [aspect, setAspect] = useState(0);
   const [activeGod, setActiveGod] = useState<God | null>(null);
   const { build, dispatch } = useBuild();
 
+  const currentSlot: BoonSlot | null =
+    activeIndex >= 3 && activeIndex <= 7
+      ? ABILITY_SLOTS[activeIndex - 3][0]
+      : activeIndex === 8
+        ? "passive"
+        : null;
+
+  const visibleBoons = currentSlot
+    ? currentSlot === "passive"
+      ? boons
+          .filter((b) => b.slots.includes("passive"))
+          .filter((b) => !activeGod || b.god === activeGod)
+      : getAvailableBoons(build, currentSlot, boons).filter(
+          (b) => !activeGod || b.god === activeGod,
+        )
+    : [];
+
   const updateBuild = (item: number) => {
-    (setActiveIndex(2),
-      setAspect(item),
-      dispatch({
-        type: "SET_WEAPON",
-        weaponId: weaponsData[item].id,
-      }));
+    setActiveIndex(2);
+    setAspect(item);
+    dispatch({ type: "SET_WEAPON", weaponId: weaponsData[item].id });
   };
 
   const updateAspect = (item: number) => {
-    (setActiveIndex(0),
-      dispatch({
-        type: "SET_ASPECT",
-        aspectId: weaponsData[aspect].aspects[item].id,
-      }));
-  };
-
-  const updateAbility = (name: string, ability: BoonSlot, data: Boon[]) => {
     setActiveIndex(0);
-    const selected = data.find((selected) => selected.name === name);
-    if (!selected) return;
-
     dispatch({
-      type: "SET_BOON",
-      slot: ability,
-      boonId: selected.id,
+      type: "SET_ASPECT",
+      aspectId: weaponsData[aspect].aspects[item].id,
     });
   };
 
-  // Replaced by validation layer in Step 3
-  //const isCardDisabled = (_prerequisite: string[]) => false;
+  const openSlot = (index: number) => {
+    setActiveIndex(index);
+    setActiveGod(null);
+  };
 
   return (
     <div className='site-wrap'>
@@ -99,78 +107,61 @@ function AppInner() {
           </section>
           <section id='aspect-side'>
             <h2>Abilities</h2>
-            <BuildSelector
-              onClick={() => { setActiveIndex(3); setActiveGod(null); }}
-              attribute={build.attack}
+            {ABILITY_SLOTS.map(([slot, index]) => (
+              <BuildSelector
+                key={slot}
+                onClick={() => openSlot(index)}
+                attribute={build[slot]}
+              >
+                {slot.charAt(0).toUpperCase() + slot.slice(1)}
+              </BuildSelector>
+            ))}
+          </section>
+          <section id='passive-side'>
+            <h2>Passives</h2>
+            <button
+              onClick={() => openSlot(8)}
+              className={`nav-item ${activeIndex === 8 ? "active" : ""}`}
             >
-              Attack
-            </BuildSelector>
-            <BuildSelector
-              onClick={() => { setActiveIndex(4); setActiveGod(null); }}
-              attribute={build.special}
-            >
-              Special
-            </BuildSelector>
-            <BuildSelector
-              onClick={() => { setActiveIndex(5); setActiveGod(null); }}
-              attribute={build.cast}
-            >
-              Cast
-            </BuildSelector>
-            <BuildSelector
-              onClick={() => { setActiveIndex(6); setActiveGod(null); }}
-              attribute={build.dash}
-            >
-              Dash
-            </BuildSelector>
-            <BuildSelector
-              onClick={() => { setActiveIndex(7); setActiveGod(null); }}
-              attribute={build.call}
-            >
-              Call
-            </BuildSelector>
+              {build.passiveBoons.length > 0
+                ? `${build.passiveBoons.length} selected`
+                : "Browse Passives"}
+            </button>
           </section>
         </Sidebar>
         <Main>
-          {activeIndex == 1 && (
-            <Weapons
-              name='Weapon'
-              data={weaponsData}
-              onItemClick={updateBuild}
-            />
+          {activeIndex === 1 && (
+            <Weapons name='Weapon' data={weaponsData} onItemClick={updateBuild} />
           )}
-
-          {activeIndex == 2 && (
+          {activeIndex === 2 && (
             <Weapons
               name='Aspect'
               data={weaponsData[aspect].aspects}
               onItemClick={updateAspect}
             />
           )}
-
-          <section className='abilities'>
-            {activeIndex >= 3 && activeIndex <= 7 && (
+          {currentSlot && (
+            <section className='abilities'>
               <FilterMenu
                 activeGod={activeGod}
-                onFilterClick={(god) => setActiveGod(activeGod === god ? null : god)}
+                onFilterClick={(god) =>
+                  setActiveGod(activeGod === god ? null : god)
+                }
               />
-            )}
-            <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-5'>
-              {(["attack", "special", "cast", "dash", "call"] as const).map((slot, i) =>
-                activeIndex === i + 3
-                  ? getAvailableBoons(build, slot, boons)
-                      .filter((b) => !activeGod || b.god === activeGod)
-                      .map((boon) => (
-                        <Card
-                          {...boon}
-                          key={boon.id}
-                          onClick={() => updateAbility(boon.name, slot, boons)}
-                        />
-                      ))
-                  : null
-              )}
-            </div>
-          </section>
+              <BoonList
+                boons={visibleBoons}
+                onSelect={(boonId) => {
+                  if (currentSlot === "passive") {
+                    dispatch({ type: "TOGGLE_PASSIVE_BOON", boonId });
+                  } else {
+                    dispatch({ type: "SET_BOON", slot: currentSlot, boonId });
+                    setActiveIndex(0);
+                  }
+                }}
+                selectedIds={currentSlot === "passive" ? build.passiveBoons : []}
+              />
+            </section>
+          )}
         </Main>
       </div>
     </div>

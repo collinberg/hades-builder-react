@@ -11,7 +11,7 @@ export type God =
   | "Hermes"
   | "Demeter";
 
-export type BoonSlot = "attack" | "special" | "dash" | "call" | "cast";
+export type BoonSlot = "attack" | "special" | "dash" | "call" | "cast" | "passive";
 
 export interface Weapon {
   type: string;
@@ -47,6 +47,7 @@ export interface Build {
   dash: string | null;
   cast: string | null;
   call: string | null;
+  passiveBoons: string[];
   label: string;
 }
 
@@ -56,6 +57,7 @@ export type Action =
   | { type: "SET_BOON"; slot: BoonSlot; boonId: string }
   | { type: "CLEAR_BOON"; slot: BoonSlot }
   | { type: "SET_LABEL"; label: string }
+  | { type: "TOGGLE_PASSIVE_BOON"; boonId: string }
   | { type: "RESET" }
   | { type: "HYDRATE"; build: Build };
 
@@ -67,6 +69,7 @@ export const initialBuildState: Build = {
   dash: null,
   cast: null,
   call: null,
+  passiveBoons: [],
   label: "",
 };
 
@@ -82,6 +85,13 @@ export function buildReducer(state: Build, action: Action): Build {
       return { ...state, [action.slot]: null };
     case "SET_LABEL":
       return { ...state, label: action.label };
+    case "TOGGLE_PASSIVE_BOON":
+      return {
+        ...state,
+        passiveBoons: state.passiveBoons.includes(action.boonId)
+          ? state.passiveBoons.filter((id) => id !== action.boonId)
+          : [...state.passiveBoons, action.boonId],
+      };
     case "RESET":
       return initialBuildState;
     case "HYDRATE":

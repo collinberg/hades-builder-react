@@ -5,7 +5,10 @@ import type{ BoonSlot, Boon, Build } from "../context/BuildContext";
 export function getAvailableBoons(build: Build, slot: BoonSlot, data: Boon[]): Boon[] {
     
     //Get the IDs of the currently selected boons in the build
-    const selectedBoonIds = [build.attack, build.special, build.cast, build.dash, build.call];
+    const selectedBoonIds = [
+      build.attack, build.special, build.cast, build.dash, build.call,
+      ...build.passiveBoons,
+    ];
 
     //Filter the boons based on the current build and the slot being selected
     const availableBoons = data.filter((boon) => {
