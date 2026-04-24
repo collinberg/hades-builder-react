@@ -29,7 +29,7 @@ const Card = ({
 
   return (
     <div
-      className={`boon-card lg:max-w-sm p-6 border border-gray-200 rounded-lg shadow ${
+      className={`boon-card border border-gray-200 rounded-lg shadow ${
         disabled ? " disabled" : ""
       }`}
       key={id.toString()}
