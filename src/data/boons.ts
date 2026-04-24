@@ -1,5 +1,10 @@
 import type { Boon } from '../context/BuildContext';
 
+import DyingLament from '../assets/img/_boons/Dying_Lament.webp';
+import WaveOfDespair from '../assets/img/_boons/Wave_of_Despair.webp';
+import DifferentLeague from '../assets/img/_boons/Different_League.webp';
+import LifeAffirmation from '../assets/img/_boons/Life_Affirmation.webp';
+
 export const boons: Boon[] = [
   // Attack
   {
@@ -440,6 +445,127 @@ export const boons: Boon[] = [
     description: 'Your Call creates a winter vortex for 5 Sec., deals damage every 0.25 Sec inflicting Chill.',
     img: "./attacks/call/Demeter's_Aid_I.webp",
     slots: ['call'],
+    prerequisites: [],
+  },
+
+  // Passive — Zeus
+  {
+    id: 'PA_ZEU_01',
+    name: "Heaven's Vengeance",
+    god: 'Zeus',
+    description: 'After you take damage, your foe is struck by lightning.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_ZEU_02',
+    name: 'Lightning Reflexes',
+    god: 'Zeus',
+    description: 'After you Dash just before getting hit, a bolt strikes nearby foes.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_ZEU_03',
+    name: 'Storm Lightning',
+    god: 'Zeus',
+    description: 'Your chain-lightning effects bounce more times before expiring.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: ['AT_ZEU_01', 'CT_ZEU_1'],
+  },
+  {
+    id: 'PA_ZEU_04',
+    name: 'High Voltage',
+    god: 'Zeus',
+    description: 'Your lightning bolt effects deal damage in a larger area.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: ['SP_ZEU_01', 'DA_ZEU_01', 'CL_ZEU_01'],
+  },
+  {
+    id: 'PA_ZEU_05',
+    name: 'Double Strike',
+    god: 'Zeus',
+    description: 'Your lightning bolt effects have a chance to strike twice.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_ZEU_06',
+    name: 'Static Discharge',
+    god: 'Zeus',
+    description: 'Your lightning effects also make foes Jolted.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_ZEU_07',
+    name: 'Clouded Judgment',
+    god: 'Zeus',
+    description: 'Your God Gauge charges faster when you deal or take damage.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_ZEU_08',
+    name: 'Billowing Strength',
+    god: 'Zeus',
+    description: 'After using Call, you deal more damage for 15 Sec.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_ZEU_09',
+    name: 'Splitting Bolt',
+    god: 'Zeus',
+    description: 'All your lightning effects create an additional burst.',
+    img: '',
+    slots: ['passive'],
+    prerequisites: [],
+  },
+
+  // Passive — Aphrodite
+  {
+    id: 'PA_APH_01',
+    name: 'Dying Lament',
+    god: 'Aphrodite',
+    description: 'When foes are slain, they damage nearby foes and inflict Weak.',
+    img: DyingLament,
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_APH_02',
+    name: 'Wave of Despair',
+    god: 'Aphrodite',
+    description: 'After you take damage, damage nearby foes and inflict Weak.',
+    img: WaveOfDespair,
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_APH_03',
+    name: 'Different League',
+    god: 'Aphrodite',
+    description: 'Resist some damage from nearby foes\' attacks.',
+    img: DifferentLeague,
+    slots: ['passive'],
+    prerequisites: [],
+  },
+  {
+    id: 'PA_APH_04',
+    name: 'Life Affirmation',
+    god: 'Aphrodite',
+    description: 'Any Health chamber rewards are worth more.',
+    img: LifeAffirmation,
+    slots: ['passive'],
     prerequisites: [],
   },
 ];
