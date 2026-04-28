@@ -25,26 +25,42 @@ function App() {
   );
 }
 
-const ABILITY_SLOTS: [BoonSlot, number][] = [
-  ["attack", 3],
-  ["special", 4],
-  ["cast", 5],
-  ["dash", 6],
-  ["call", 7],
+const VIEW = {
+  IDLE:    0,
+  WEAPON:  1,
+  ASPECT:  2,
+  ATTACK:  3,
+  SPECIAL: 4,
+  CAST:    5,
+  DASH:    6,
+  CALL:    7,
+  PASSIVE: 8,
+} as const;
+
+const ABILITY_SLOTS: [Exclude<BoonSlot, "passive">, number][] = [
+  ["attack",  VIEW.ATTACK],
+  ["special", VIEW.SPECIAL],
+  ["cast",    VIEW.CAST],
+  ["dash",    VIEW.DASH],
+  ["call",    VIEW.CALL],
 ];
 
+const SLOT_VIEW_MAP: Partial<Record<number, BoonSlot>> = {
+  [VIEW.ATTACK]:  "attack",
+  [VIEW.SPECIAL]: "special",
+  [VIEW.CAST]:    "cast",
+  [VIEW.DASH]:    "dash",
+  [VIEW.CALL]:    "call",
+  [VIEW.PASSIVE]: "passive",
+};
+
 function AppInner() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number>(VIEW.IDLE);
   const [aspect, setAspect] = useState(0);
   const [activeGod, setActiveGod] = useState<God | null>(null);
   const { build, dispatch } = useBuild();
 
-  const currentSlot: BoonSlot | null =
-    activeIndex >= 3 && activeIndex <= 7
-      ? ABILITY_SLOTS[activeIndex - 3][0]
-      : activeIndex === 8
-        ? "passive"
-        : null;
+  const currentSlot: BoonSlot | null = SLOT_VIEW_MAP[activeIndex] ?? null;
 
   const visibleBoons = currentSlot
     ? currentSlot === "passive"
@@ -57,13 +73,13 @@ function AppInner() {
     : [];
 
   const updateBuild = (item: number) => {
-    setActiveIndex(2);
+    setActiveIndex(VIEW.ASPECT);
     setAspect(item);
     dispatch({ type: "SET_WEAPON", weaponId: weaponsData[item].id });
   };
 
   const updateAspect = (item: number) => {
-    setActiveIndex(0);
+    setActiveIndex(VIEW.IDLE);
     dispatch({
       type: "SET_ASPECT",
       aspectId: weaponsData[aspect].aspects[item].id,
@@ -80,16 +96,16 @@ function AppInner() {
       <AppNav
         onResetClick={() => {
           dispatch({ type: "RESET" });
-          setActiveIndex(0);
+          setActiveIndex(VIEW.IDLE);
         }}
       />
-      <div className='flex w-full pt-16 overflow-hidden' aria-hidden='true'>
+      <div className='flex w-full pt-16 overflow-hidden'>
         <Sidebar>
           <section id='weapon-side' className='space-y-2 font-medium'>
             <h2>Weapon</h2>
             <div className='weapon_wrap'>
               <BuildSelector
-                onClick={() => setActiveIndex(1)}
+                onClick={() => setActiveIndex(VIEW.WEAPON)}
                 attribute={build.weapon}
               >
                 Weapon
@@ -97,7 +113,7 @@ function AppInner() {
             </div>
             <div className='weapon_wrap'>
               <BuildSelector
-                onClick={() => setActiveIndex(2)}
+                onClick={() => setActiveIndex(VIEW.ASPECT)}
                 attribute={build.aspect}
                 weaponData={build.weapon}
               >
@@ -120,8 +136,8 @@ function AppInner() {
           <section id='passive-side'>
             <h2>Passives</h2>
             <button
-              onClick={() => openSlot(8)}
-              className={`nav-item ${activeIndex === 8 ? "active" : ""}`}
+              onClick={() => openSlot(VIEW.PASSIVE)}
+              className={`nav-item ${activeIndex === VIEW.PASSIVE ? "active" : ""}`}
             >
               {build.passiveBoons.length > 0
                 ? `${build.passiveBoons.length} selected`
@@ -130,10 +146,14 @@ function AppInner() {
           </section>
         </Sidebar>
         <Main>
-          {activeIndex === 1 && (
-            <Weapons name='Weapon' data={weaponsData} onItemClick={updateBuild} />
+          {activeIndex === VIEW.WEAPON && (
+            <Weapons
+              name='Weapon'
+              data={weaponsData}
+              onItemClick={updateBuild}
+            />
           )}
-          {activeIndex === 2 && (
+          {activeIndex === VIEW.ASPECT && (
             <Weapons
               name='Aspect'
               data={weaponsData[aspect].aspects}
@@ -155,10 +175,12 @@ function AppInner() {
                     dispatch({ type: "TOGGLE_PASSIVE_BOON", boonId });
                   } else {
                     dispatch({ type: "SET_BOON", slot: currentSlot, boonId });
-                    setActiveIndex(0);
+                    setActiveIndex(VIEW.IDLE);
                   }
                 }}
-                selectedIds={currentSlot === "passive" ? build.passiveBoons : []}
+                selectedIds={
+                  currentSlot === "passive" ? build.passiveBoons : []
+                }
               />
             </section>
           )}
