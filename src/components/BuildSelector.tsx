@@ -1,11 +1,10 @@
 import type { Boon, Weapon, Aspect } from "../context/BuildContext";
 import { weaponsData } from "../data/weapons";
-
 import { boons } from "../data/boons";
 
 export interface Props {
   children: string;
-  attribute: Boon | string;
+  attribute: string | null;
   onClick: () => void;
   weaponData?: string | null;
 }
@@ -16,25 +15,17 @@ const BuildSelector = ({
   children = "Select Aspect",
   onClick,
 }: Props) => {
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-    }
-  };
-  let displayAttribute: Weapon | Aspect | Boon | any = [];
+  let displayAttribute: Weapon | Aspect | Boon | undefined;
 
   switch (children) {
     case "Weapon":
       displayAttribute = weaponsData.find((weapon) => weapon.id === attribute);
       break;
-
-    case "Aspect":
+    case "Aspect": {
       const weapon = weaponsData.find((weapon) => weapon.id === weaponData);
-      displayAttribute = weapon?.aspects.find(
-        (aspect) => aspect.id === attribute,
-      );
-      console.log(weaponsData[1].aspects);
+      displayAttribute = weapon?.aspects.find((aspect) => aspect.id === attribute);
       break;
+    }
     default:
       displayAttribute = boons.find((b) => b.id === attribute);
   }
@@ -45,7 +36,7 @@ const BuildSelector = ({
         <div
           className='current__aspect selected'
           role='button'
-          onClick={handleClick}
+          onClick={onClick}
           key={displayAttribute.id}
         >
           <div className='weapon-icon'>
@@ -57,7 +48,7 @@ const BuildSelector = ({
         <div
           className='current__aspect no_selection'
           role='button'
-          onClick={handleClick}
+          onClick={onClick}
         >
           <span>Select {children}</span>
         </div>
