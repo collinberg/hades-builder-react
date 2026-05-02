@@ -15,8 +15,6 @@ import { weaponsData } from "./data/weapons";
 import { boons } from "./data/boons";
 import { getAvailableBoons } from "./rules/validation";
 
-import "./App.css";
-
 function App() {
   return (
     <BuildProvider>
@@ -26,7 +24,6 @@ function App() {
 }
 
 const VIEW = {
-  IDLE:    0,
   WEAPON:  1,
   ASPECT:  2,
   ATTACK:  3,
@@ -38,24 +35,24 @@ const VIEW = {
 } as const;
 
 const ABILITY_SLOTS: [Exclude<BoonSlot, "passive">, number][] = [
-  ["attack",  VIEW.ATTACK],
+  ["attack", VIEW.ATTACK],
   ["special", VIEW.SPECIAL],
-  ["cast",    VIEW.CAST],
-  ["dash",    VIEW.DASH],
-  ["call",    VIEW.CALL],
+  ["cast", VIEW.CAST],
+  ["dash", VIEW.DASH],
+  ["call", VIEW.CALL],
 ];
 
 const SLOT_VIEW_MAP: Partial<Record<number, BoonSlot>> = {
-  [VIEW.ATTACK]:  "attack",
+  [VIEW.ATTACK]: "attack",
   [VIEW.SPECIAL]: "special",
-  [VIEW.CAST]:    "cast",
-  [VIEW.DASH]:    "dash",
-  [VIEW.CALL]:    "call",
+  [VIEW.CAST]: "cast",
+  [VIEW.DASH]: "dash",
+  [VIEW.CALL]: "call",
   [VIEW.PASSIVE]: "passive",
 };
 
 function AppInner() {
-  const [activeIndex, setActiveIndex] = useState<number>(VIEW.IDLE);
+  const [activeIndex, setActiveIndex] = useState<number>(VIEW.PASSIVE);
   const [aspect, setAspect] = useState(0);
   const [activeGod, setActiveGod] = useState<God | null>(null);
   const { build, dispatch } = useBuild();
@@ -79,7 +76,7 @@ function AppInner() {
   };
 
   const updateAspect = (item: number) => {
-    setActiveIndex(VIEW.IDLE);
+    setActiveIndex(VIEW.PASSIVE);
     dispatch({
       type: "SET_ASPECT",
       aspectId: weaponsData[aspect].aspects[item].id,
@@ -96,7 +93,7 @@ function AppInner() {
       <AppNav
         onResetClick={() => {
           dispatch({ type: "RESET" });
-          setActiveIndex(VIEW.IDLE);
+          setActiveIndex(VIEW.PASSIVE);
         }}
       />
       <div className='flex w-full pt-16 overflow-hidden'>
@@ -175,7 +172,7 @@ function AppInner() {
                     dispatch({ type: "TOGGLE_PASSIVE_BOON", boonId });
                   } else {
                     dispatch({ type: "SET_BOON", slot: currentSlot, boonId });
-                    setActiveIndex(VIEW.IDLE);
+                    setActiveIndex(VIEW.PASSIVE);
                   }
                 }}
                 selectedIds={
