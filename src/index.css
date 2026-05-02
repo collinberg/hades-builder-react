@@ -244,6 +244,22 @@ main {
   flex-direction: row;
 }
 
+.boon-card img {
+  color: #eee;
+  font-size: 0.6em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  /* Points: Top(50% 0), Right(100% 50%), Bottom(50% 100%), Left(0 50%) */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100px;
+  min-height: 100px;
+  padding: 1em;
+}
+
 .boon-card img.legendary {
   filter: drop-shadow(3px 3px 0px orange) drop-shadow(-3px -3px 0 orange) drop-shadow(3px -3px 0 orange) drop-shadow(-3px 3px 0 orange);
 }
