@@ -24,13 +24,13 @@ function App() {
 }
 
 const VIEW = {
-  WEAPON:  1,
-  ASPECT:  2,
-  ATTACK:  3,
+  WEAPON: 1,
+  ASPECT: 2,
+  ATTACK: 3,
   SPECIAL: 4,
-  CAST:    5,
-  DASH:    6,
-  CALL:    7,
+  CAST: 5,
+  DASH: 6,
+  CALL: 7,
   PASSIVE: 8,
 } as const;
 
@@ -130,19 +130,24 @@ function AppInner() {
               </BuildSelector>
             ))}
           </section>
-          <section id='passive-side'>
-            <h2>Passives</h2>
-            <button
-              onClick={() => openSlot(VIEW.PASSIVE)}
-              className={`nav-item ${activeIndex === VIEW.PASSIVE ? "active" : ""}`}
-            >
-              {build.passiveBoons.length > 0
-                ? `${build.passiveBoons.length} selected`
-                : "Browse Passives"}
-            </button>
-          </section>
         </Sidebar>
         <Main>
+          <header className='mb-4'>
+            <div className='header-inner flex flex-row flex-wrap gap-2 p-4 min-h-[60px]'>
+              {build.passiveBoons.map((id) => {
+                const boon = boons.find((b) => b.id === id);
+                return boon ? (
+                  <img
+                    key={id}
+                    src={boon.img}
+                    alt={boon.name}
+                    title={boon.name}
+                    className='w-12 h-12 rounded-full object-cover'
+                  />
+                ) : null;
+              })}
+            </div>
+          </header>
           {activeIndex === VIEW.WEAPON && (
             <Weapons
               name='Weapon'
