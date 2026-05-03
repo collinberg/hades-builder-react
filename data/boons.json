@@ -80,7 +80,7 @@
         "type" : "legendary",
         "description" : "All your lightning effects create an additional burst.",
         "img" : "./boons/Splitting_Bolt_I.webp",
-        "prerequisites": []
+        "prerequisites": ["Storm Lightning", "High Voltage", "Double Strike"]
     },    
     {
         "id": "A_01",
