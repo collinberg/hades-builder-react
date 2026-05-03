@@ -139,18 +139,24 @@ function AppInner() {
         <Main>
           <header className='mb-4'>
             <div className='header-inner flex flex-row flex-wrap gap-2 p-4 min-h-[60px]'>
-              {build.passiveBoons.map((id) => {
-                const boon = boons.find((b) => b.id === id);
-                return boon ? (
-                  <img
-                    key={id}
-                    src={boon.img}
-                    alt={boon.name}
-                    title={boon.name}
-                    className='w-12 h-12 rounded-full object-cover'
-                  />
-                ) : null;
-              })}
+              {build.passiveBoons.length === 0 ? (
+                <span className='text-gray-500 text-sm text-center block w-full self-center'>
+                  No Boons Added
+                </span>
+              ) : (
+                build.passiveBoons.map((id) => {
+                  const boon = boons.find((b) => b.id === id);
+                  return boon ? (
+                    <img
+                      key={id}
+                      src={boon.img}
+                      alt={boon.name}
+                      title={boon.name}
+                      className='w-12 h-12 rounded-full object-cover'
+                    />
+                  ) : null;
+                })
+              )}
             </div>
           </header>
           {activeIndex === VIEW.WEAPON && (
