@@ -18,6 +18,7 @@ import Weapons from "./components/Weapons";
 import { weaponsData } from "./data/weapons";
 import { boons } from "./data/boons";
 import { getAvailableBoons } from "./rules/validation";
+import { assetUrl } from "./utils/assetUrl";
 
 function App() {
   return (
@@ -149,7 +150,7 @@ function AppInner() {
                   return boon ? (
                     <img
                       key={id}
-                      src={boon.img}
+                      src={assetUrl(boon.img)}
                       alt={boon.name}
                       title={boon.name}
                       className='w-12 h-12 rounded-full object-cover'

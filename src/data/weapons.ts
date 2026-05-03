@@ -36,31 +36,31 @@ export const weaponsData : Weapon[] = [
       "type": "sword",
       "id"  : "W1",
       "name" : "Stygian Blade",
-      "img" : "./weapons/Stygian_Blade.webp",      
+      "img" : "weapons/Stygian_Blade.webp",      
       "aspects" : [
         {
           "number" : 1,
           "id" : "W1-1",
           "name" : "Aspect of Zagreus",
-          "img" : "./aspect/Zagreus_Aspect_Sword.webp"
+          "img" : "aspect/Zagreus_Aspect_Sword.webp"
         },
         {
           "number" : 2,
           "id" : "W1-2",
           "name" : "Aspect of Nemesis",
-          "img" : "./aspect/Nemesis_Aspect.webp"
+          "img" : "aspect/Nemesis_Aspect.webp"
         },        
         {
           "number" : 3,
           "id" : "W1-3",
           "name" : "Aspect of Poseidon",
-          "img" : "./aspect/Poseidon_Aspect.webp"
+          "img" : "aspect/Poseidon_Aspect.webp"
         },
         {
           "number" : 4,
           "id" : "W1-4",
           "name" : "Aspect of Arthur",
-          "img" : "./aspect/Arthur_Aspect.webp"
+          "img" : "aspect/Arthur_Aspect.webp"
         },
       ]
     },
@@ -68,31 +68,31 @@ export const weaponsData : Weapon[] = [
       "type": "spear",
       "id"  : "W2",
       "name" : "Eternal Spear",
-      "img" : "./weapons/Eternal_Spear.webp",
+      "img" : "weapons/Eternal_Spear.webp",
       "aspects" : [
         {
           "number" : 1,
           "id" : "W2-1",
           "name" : "Aspect of Zagreus",
-          "img" : "./aspect/Zagreus_Aspect_Spear.webp"
+          "img" : "aspect/Zagreus_Aspect_Spear.webp"
         },
         {
           "number" : 2,
           "id" : "W2-2",
           "name" : "Aspect of Achilles",
-          "img" : "./aspect/Achilles_Aspect.webp"
+          "img" : "aspect/Achilles_Aspect.webp"
         },
         {
           "number" : 3,
           "id" : "W2-3",
           "name" : "Aspect of Hades",
-          "img" : "./aspect/Hades_Aspect.webp"
+          "img" : "aspect/Hades_Aspect.webp"
         },
         {
           "number" : 4,
           "id" : "W2-4",
           "name" : "Aspect of Guan Yu",
-          "img" : "./aspect/Guan_Yu_Aspect.webp"
+          "img" : "aspect/Guan_Yu_Aspect.webp"
         },
       ]
     },
@@ -100,31 +100,31 @@ export const weaponsData : Weapon[] = [
       "type": "shield",
       "id"  : "W3",
       "name" : "Shield of Chaos",
-      "img" : "./weapons/Shield_of_Chaos.webp",        
+      "img" : "weapons/Shield_of_Chaos.webp",        
       "aspects" : [
         {
           "number" : 1,
           "id" : "W3-1",
           "name" : "Aspect of Zagreus",
-          "img" : "./aspect/Zagreus_Aspect_Shield.webp"
+          "img" : "aspect/Zagreus_Aspect_Shield.webp"
         },
         {
           "number" : 2,
           "id" : "W3-2",
           "name" : "Aspect of Chaos",
-          "img" : "./aspect/Chaos_Aspect.webp"
+          "img" : "aspect/Chaos_Aspect.webp"
         },
         {
           "number" : 3,
           "id" : "W3-3",
           "name" : "Aspect of Zeus",
-          "img" : "./aspect/Zeus_Aspect.webp"
+          "img" : "aspect/Zeus_Aspect.webp"
         },
         {
           "number" : 4,
           "id" : "W3-4",
           "name" : "Aspect of Beowulf",
-          "img" : "./aspect/Shield_aspect_beuwulf.webp"
+          "img" : "aspect/Shield_aspect_beuwulf.webp"
         },
       ]
     },
@@ -132,31 +132,31 @@ export const weaponsData : Weapon[] = [
       "type": "bow",
       "id"  : "W4",
       "name" : "Seeking Bow",
-      "img" : "./weapons/Heart-Seeker_Bow.webp",  
+      "img" : "weapons/Heart-Seeker_Bow.webp",  
       "aspects" : [
         {
           "number" : 1,
           "id" : "W4-1",
           "name" : "Aspect of Zagreus",
-          "img" : "./aspect/Zagreus_Aspect_Bow.webp"
+          "img" : "aspect/Zagreus_Aspect_Bow.webp"
         },
         {
           "number" : 2,
           "id" : "W4-2",
           "name" : "Aspect of Chiron",
-          "img" : "./aspect/Chiron_Aspect.webp"
+          "img" : "aspect/Chiron_Aspect.webp"
         },
         {
           "number" : 3,
           "id" : "W4-3",
           "name" : "Aspect of Hera",
-          "img" : "./aspect/Hera_Aspect.webp"
+          "img" : "aspect/Hera_Aspect.webp"
         },
         {
           "number" : 4,
           "id" : "W4-4",
           "name" : "Aspect of Rama",
-          "img" : "./aspect/Rama_aspect.webp"
+          "img" : "aspect/Rama_aspect.webp"
         },
       ]
     },
@@ -164,31 +164,31 @@ export const weaponsData : Weapon[] = [
       "type": "fists",
       "id"  : "W5",
       "name" : "Twin Fists of Malphon",
-      "img" : "./weapons/Twin_Fists.webp",  
+      "img" : "weapons/Twin_Fists.webp",  
       "aspects" : [
         {
           "number" : 1,
           "id" : "W5-1",
           "name" : "Aspect of Zagreus",
-          "img" : "./aspect/Zagreus_Aspect_Fists.webp"
+          "img" : "aspect/Zagreus_Aspect_Fists.webp"
         },
         {
           "number" : 2,
           "id" : "W5-2",
           "name" : "Aspect of Talos",
-          "img" : "./aspect/Talos_Aspect.webp"
+          "img" : "aspect/Talos_Aspect.webp"
         },
         {
           "number" : 3,
           "id" : "W5-3",
           "name" : "Aspect of Demeter",
-          "img" : "./aspect/Demeter_Aspect.webp"
+          "img" : "aspect/Demeter_Aspect.webp"
         },
         {
           "number" : 4,
           "id" : "W5-4",
           "name" : "Aspect of Gilgamesh",
-          "img" : "./aspect/Gilgamesh_Aspect.webp"
+          "img" : "aspect/Gilgamesh_Aspect.webp"
         },
       ]
     },
@@ -196,31 +196,31 @@ export const weaponsData : Weapon[] = [
       "type": "gun",
       "id"  : "W6",
       "name" : "Adamant Rail",
-      "img" : "./weapons/Adamant_Rail.webp",  
+      "img" : "weapons/Adamant_Rail.webp",  
       "aspects" : [
         {
           "number" : 1,
           "id" : "W6-1",
           "name" : "Aspect of Zagreus",
-          "img" : "./aspect/Zagreus_Rail_Image.webp"
+          "img" : "aspect/Zagreus_Rail_Image.webp"
         },
         {
           "number" : 2,
           "id" : "W6-2",
           "name" : "Aspect of Eris",
-          "img" : "./aspect/Eris_Aspect.webp"
+          "img" : "aspect/Eris_Aspect.webp"
         },
         {
           "number" : 3,
           "id" : "W6-3",
           "name" : "Aspect of Hestia",
-          "img" : "./aspect/Hestia_Aspect_Image.webp"
+          "img" : "aspect/Hestia_Aspect_Image.webp"
         },
         {
           "number" : 4,
           "id" : "W6-4",
           "name" : "Aspect of Lucifer",
-          "img" : "./aspect/Lycifer_aspect.webp"
+          "img" : "aspect/Lycifer_aspect.webp"
         },
       ]
     }

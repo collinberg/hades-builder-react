@@ -1,6 +1,7 @@
 import type { Boon, Weapon, Aspect } from "../context/BuildContext";
 import { weaponsData } from "../data/weapons";
 import { boons } from "../data/boons";
+import { assetUrl } from "../utils/assetUrl";
 
 export interface Props {
   children: string;
@@ -23,7 +24,9 @@ const BuildSelector = ({
       break;
     case "Aspect": {
       const weapon = weaponsData.find((weapon) => weapon.id === weaponData);
-      displayAttribute = weapon?.aspects.find((aspect) => aspect.id === attribute);
+      displayAttribute = weapon?.aspects.find(
+        (aspect) => aspect.id === attribute,
+      );
       break;
     }
     default:
@@ -40,7 +43,7 @@ const BuildSelector = ({
           key={displayAttribute.id}
         >
           <div className='weapon-icon'>
-            <img src={displayAttribute.img} alt={displayAttribute.name} />
+            <img src={assetUrl(displayAttribute.img)} alt={displayAttribute.name} />
           </div>
           <span>{displayAttribute.name}</span>
         </div>

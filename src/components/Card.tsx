@@ -1,3 +1,5 @@
+import { assetUrl } from "../utils/assetUrl";
+
 interface Props {
   id: string;
   name: string;
@@ -38,7 +40,7 @@ const Card = ({
     >
       <div className='card-head w-1/3'>
         <div className='gods'>
-          <img src={`.${img}`} className={type} alt={`${name} Boon Icon`} />
+          <img src={assetUrl(img)} className={type} alt={`${name} Boon Icon`} />
         </div>
       </div>
       <div className='card-main w-2/3'>
