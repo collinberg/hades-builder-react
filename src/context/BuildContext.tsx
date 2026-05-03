@@ -11,7 +11,13 @@ export type God =
   | "Hermes"
   | "Demeter";
 
-export type BoonSlot = "attack" | "special" | "dash" | "call" | "cast" | "passive";
+export type BoonSlot =
+  | "attack"
+  | "special"
+  | "dash"
+  | "call"
+  | "cast"
+  | "passive";
 
 export interface Weapon {
   type: string;
@@ -76,7 +82,7 @@ export const initialBuildState: Build = {
 export function buildReducer(state: Build, action: Action): Build {
   switch (action.type) {
     case "SET_WEAPON":
-      return { ...initialBuildState, weapon: action.weaponId };
+      return { ...state, aspect: null, weapon: action.weaponId };
     case "SET_ASPECT":
       return { ...state, aspect: action.aspectId };
     case "SET_BOON":
@@ -94,6 +100,7 @@ export function buildReducer(state: Build, action: Action): Build {
       };
     case "RESET":
       return initialBuildState;
+
     case "HYDRATE":
       return action.build;
   }

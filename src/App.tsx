@@ -1,8 +1,11 @@
 import { useState } from "react";
 
+//Logic and State
 import { BuildProvider, useBuild } from "./context/BuildContext";
 import type { BoonSlot, God } from "./context/BuildContext";
+import { useBuildURLSync } from "./hooks/useBuildURLSync";
 
+//Components
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import BuildSelector from "./components/BuildSelector";
@@ -11,6 +14,7 @@ import FilterMenu from "./components/FilterMenu";
 import BoonList from "./components/BoonList";
 import Weapons from "./components/Weapons";
 
+//Data
 import { weaponsData } from "./data/weapons";
 import { boons } from "./data/boons";
 import { getAvailableBoons } from "./rules/validation";
@@ -56,6 +60,7 @@ function AppInner() {
   const [aspect, setAspect] = useState(0);
   const [activeGod, setActiveGod] = useState<God | null>(null);
   const { build, dispatch } = useBuild();
+  useBuildURLSync(build, dispatch);
 
   const currentSlot: BoonSlot | null = SLOT_VIEW_MAP[activeIndex] ?? null;
 
@@ -170,6 +175,9 @@ function AppInner() {
                   setActiveGod(activeGod === god ? null : god)
                 }
               />
+              <p className='text-sm text-gray-400 px-3 py-1'>
+                {visibleBoons.length} boons available
+              </p>
               <BoonList
                 boons={visibleBoons}
                 onSelect={(boonId) => {
